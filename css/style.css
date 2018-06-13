@@ -2,7 +2,7 @@ body
 {
     margin: 0;
     padding: 0;
-    background: url(marble.jpg);
+    background: url(../pics/marble.jpg);
     background-size: cover;
     background-position: top;
     font-family: sans-serif;
