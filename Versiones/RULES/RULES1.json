@@ -1,0 +1,27 @@
+{
+  "rules": {
+		".read": "auth.uid === root.child('admin').val()",
+    ".write": "auth.uid === root.child('admin').val()",
+      
+        "PERIODOESCOLAR": {
+          "$idperiodo": {
+          "$cursos": {
+          "$idcurso": {
+          "$materias": {
+          "$idmateria": {
+          "$calificaciones": {
+          "$mes": {
+          "$idestu": {
+			     ".read": "auth.uid === root.child('ESTUDIANTES').child($idestu).child('email').val() OR
+            auth.uid === root.child($idperiodo).child($).child('email').val()"
+    } 
+    } 
+    } 
+    } 
+    } 
+    } 
+    } 
+    }
+    }
+  }
+}

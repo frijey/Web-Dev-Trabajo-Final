@@ -1,0 +1,64 @@
+{
+  "ESTUDIANTES" : [ null, {
+    "apellido" : "Marte Bonifacio",
+    "contacto" : "809-574-7567",
+    "curso" : "1-A",
+    "email" : "frijey@hotmail.com",
+    "estado" : "ACTIVO",
+    "fechanac" : "1995-07-08",
+    "nombre" : "Jeffry",
+    "nombremadre" : "Rosaura Bonifacio",
+    "nombrepadre" : "Ignacio Marte"
+  }, {
+    "apellido" : "Marte Bonifacio",
+    "contacto" : "809-574-7567",
+    "curso" : "1-A",
+    "email" : "galvinsantos@gmail.com",
+    "estado" : "ACTIVO",
+    "fechanac" : "1995-07-08",
+    "nombre" : "Jeffry",
+    "nombremadre" : "Rosaura Bonifacio",
+    "nombrepadre" : "Ignacio Marte"
+  } ],
+  "MATERIAS" : {
+    "CIENCIAS DE LA NATURALEZA" : "NAT",
+    "CIENCIAS SOCIALES" : "SOC",
+    "EDUCACIÓN ARTÍSTICA" : "ART",
+    "EDUCACIÓN CÍVICA" : "CIV",
+    "EDUCACIÓN FÍSICA" : "FIS",
+    "EDUCACIÓN TÉCNICA" : "TEC",
+    "FORMACIÓN INTEGRAL HUMANA Y RELIGIOSA" : "FOR",
+    "FRANCÉS" : "FRA",
+    "INGLÉS" : "ING",
+    "LENGUA ESPAÑOLA" : "ESP",
+    "MATEMÁTICAS" : "MAT"
+  },
+  "PERIODOESCOLAR" : {
+    "1" : {
+            "CURSOS" : {
+              "1-A" : {
+        "MATERIAS" : [ null, {
+          "idcurso" : "1-A",
+          "idmateria" : "NAT",
+          "nombre" : "LENGUA ESPAÑOLA"
+        } ]
+      }
+      },
+      "añodesde" : 2018
+    },
+    "CURSOS" : {
+      "1-A" : {
+        "MATERIAS" : [ null, {
+          "idcurso" : "1-A",
+          "idmateria" : "NAT",
+          "nombre" : "LENGUA ESPAÑOLA"
+        } ]
+      }
+    },
+    "añodesde" : 2018,
+    "añohasta" : 2019,
+    "estado" : "VIGENTE",
+    "fechainicio" : "2018-08-27"
+  },
+  "zxccxz1-@" : "bboytcry@hotmail.com"
+}

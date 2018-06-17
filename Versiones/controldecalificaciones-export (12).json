@@ -1,0 +1,75 @@
+{
+  "ESTUDIANTES" : [ null, {
+    "apellido" : "Marte Bonifacio",
+    "contacto" : "809-574-7567",
+    "curso" : "1-A",
+    "email" : "frijey@hotmail.com",
+    "estado" : "ACTIVO",
+    "fechanac" : "1995-07-08",
+    "nombre" : "Jeffry",
+    "nombremadre" : "Rosaura Bonifacio",
+    "nombrepadre" : "Ignacio Marte"
+  }, {
+    "apellido" : "SANTOS",
+    "contacto" : "829-404-6626",
+    "curso" : "1-A",
+    "email" : "galvinsantos@gmail.com",
+    "estado" : "ACTIVO",
+    "fechanac" : "1990-04-25",
+    "nombre" : "Galvin",
+    "nombremadre" : "María Estévez",
+    "nombrepadre" : "Jhon Worker"
+  } ],
+  "MATERIAS" : {
+    "CIENCIAS DE LA NATURALEZA" : "NAT",
+    "CIENCIAS SOCIALES" : "SOC",
+    "EDUCACIÓN ARTÍSTICA" : "ART",
+    "EDUCACIÓN CÍVICA" : "CIV",
+    "EDUCACIÓN FÍSICA" : "FIS",
+    "EDUCACIÓN TÉCNICA" : "TEC",
+    "FORMACIÓN INTEGRAL HUMANA Y RELIGIOSA" : "FOR",
+    "FRANCÉS" : "FRA",
+    "INGLÉS" : "ING",
+    "LENGUA ESPAÑOLA" : "ESP",
+    "MATEMÁTICAS" : "MAT"
+  },
+  "PROFESORES" : [ null, {
+    "cedula" : "050-0000000-0",
+    "contacto" : "809-000-0000",
+    "email" : "profeluis@gmail.com",
+    "estado" : "ACTIVO",
+    "fechainicio" : "2018-08-21",
+    "fechanac" : "1880-03-27",
+    "nombre" : "Luis Pérez Bueno"
+  }, {
+    "cedula" : "050-0000000-1",
+    "contacto" : "809-000-1111",
+    "email" : "profekeny@gmail.com",
+    "estado" : "ACTIVO",
+    "fechainicio" : "2018-08-21",
+    "fechanac" : "1887-12-31",
+    "nombre" : "Keny Félix"
+  } ],
+  "PERIODOESCOLAR" : [ null, {
+    "CURSOS" : {
+      "1-A" : {
+        "MATERIAS" : [ null, {
+          "idcurso" : "1-A",
+          "idmateria" : "NAT",
+          "idprofe" : 2,
+          "nombre" : "CIENCIAS DE LA NATURALEZA"
+        }, {
+          "idcurso" : "1-A",
+          "idmateria" : "ESP",
+          "idprofe" : 1,
+          "nombre" : "LENGUA ESPAÑOLA"
+        } ]
+      }
+    },
+    "añodesde" : 2018,
+    "añohasta" : 2019,
+    "estado" : "VIGENTE",
+    "fechainicio" : "2018-08-27"
+  } ],
+  "zxccxz1-@" : "bboytcry@hotmail.com"
+}
