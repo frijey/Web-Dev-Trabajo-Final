@@ -1,0 +1,31 @@
+{
+  "rules": {
+    ".read": "auth.uid == root.child('admin').val()",
+    ".write": "auth.uid == root.child('admin').val()",
+
+    "PERIODOESCOLAR": {
+      "$idperiodo": {
+        "$cursos": {
+          "$idcurso": {
+            "$materias": {
+              "$idmateria": {
+                ".read": "auth.uid == root.child('PERIODOESCOLAR').child($idperiodo).child($cursos).child($idcurso).child($materias).child($idmateria).child('idprofe').val()",
+                ".write": "auth.uid == root.child('PERIODOESCOLAR').child($idperiodo).child($cursos).child($idcurso).child($materias).child($idmateria).child('idprofe').val()",
+                "$calificaciones": {
+                  "$mes": {
+                    "$idestu": {
+                      ".read": "auth.uid == root.child('ESTUDIANTES').child($idestu).child('email').val()"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/PERIODOESCOLAR/1/CURSOS/1-A/MATERIAS/1/CALIFICACIONES/1
