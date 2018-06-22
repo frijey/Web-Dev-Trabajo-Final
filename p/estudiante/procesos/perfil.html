@@ -159,6 +159,7 @@
                 var scores = data.val();
                 var keys = Object.keys(scores);
                 MyKey = keys[0].toString();
+                console.log(MyKey);
                 dbRef.child(MyKey).on('value', function (snap) {
                     nombre.innerText = snap.child('nombre').val();
                     apellido.innerText = snap.child('apellido').val();

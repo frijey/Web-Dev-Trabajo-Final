@@ -47,11 +47,11 @@
 
         <div class="jumbotron">
 
-			<div class="main row">
+            <div class="main row">
                 <div class="col-xs-12 col-sm-6">
-     
-                            <h1>Acerca del Centro Educativo</h1>
-                    				
+
+                    <h1>Acerca del Centro Educativo</h1>
+
                 </div>
 
                 <div class="col-xs-12 col-sm-6 text-justify">
@@ -77,12 +77,50 @@
         </footer>
 
     </div>
-
-
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Conexión con la base de datos -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD0wEMTWqhJb9Q_fawATAEakx3gQahjeAw",
+            authDomain: "controldecalificaciones.firebaseapp.com",
+            databaseURL: "https://controldecalificaciones.firebaseio.com",
+            projectId: "controldecalificaciones",
+            storageBucket: "controldecalificaciones.appspot.com",
+            messagingSenderId: "24849732387"
+        };
+        firebase.initializeApp(config);
+
+        var email = document.getElementById('email');
+        var btnCerrarSesion = document.getElementById('btnCerrarSesion');
+        const auth = firebase.auth();
+        const rootRef = firebase.database().ref();
+        const userkey = '';
+
+        auth.onAuthStateChanged(firebaseUser => {
+            if (firebaseUser) {
+                console.log(firebaseUser);
+                //ConseguirId();
+            } else {
+                console.log('Sesión Cerrada');
+                CerrarSesion();
+            }
+        });
+
+        function CerrarSesion() {
+            firebase.auth().signOut();
+            window.location = '../../index.html';
+        }
+
+    </script>
+
 </body>
 </html>
