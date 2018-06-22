@@ -1,0 +1,15 @@
+td {
+  border: 1px solid #726E6D;
+  padding: 15px;
+}
+
+thead{
+  font-weight:bold;
+  text-align:center;
+  background: #625D5D;
+  color:white;
+}
+
+table {
+  border-collapse: collapse;
+}
