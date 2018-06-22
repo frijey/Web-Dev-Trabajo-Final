@@ -1,0 +1,206 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Administrador</title>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+            <a class="navbar-brand" href="#">Hola Mundo</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="../nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" data-toggle="dropdown">Procesos</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item text-primary">Mi Perfil</a>
+                            <a class="dropdown-item text-primary" href="calificaciones.html">Mis Calificaciones</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="CerrarSesion();" href="../../../index.html">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="jumbotron">
+
+            <div class="main row">
+
+                <div class="col-sm-12">
+                    <center><h3 class="text-yellow">Mi Perfil</h3></center> <br />
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 " align="center"> <img src="../../../pics/profile.png" class="img-circle img-fluid img-responsive"> </div>
+
+                            <div class=" col-md-9 col-lg-9 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+
+                                        <tr>
+                                            <td>Nombre:</td>
+                                            <td id="nombreest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Apellido:</td>
+                                            <td id="apellidoest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Número:</td>
+                                            <td id="numeroest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Curso:</td>
+                                            <td id="cursoest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fecha de nacimiento:</td>
+                                            <td id="fechanacest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Género:</td>
+                                            <td id="generoest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Padre:</td>
+                                            <td id="padreest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Madre:</td>
+                                            <td id="madreest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email:</td>
+                                            <td id="emailest"></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <a href="calificaciones.html" class="btn btn-primary">Mis Calificaciones</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container-fluid bg-primary">
+                <h3 class="text-white lead">Galvin Santos & Jeffry Marte B.</h3>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Conexión con la base de datos -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD0wEMTWqhJb9Q_fawATAEakx3gQahjeAw",
+            authDomain: "controldecalificaciones.firebaseapp.com",
+            databaseURL: "https://controldecalificaciones.firebaseio.com",
+            projectId: "controldecalificaciones",
+            storageBucket: "controldecalificaciones.appspot.com",
+            messagingSenderId: "24849732387"
+        };
+        firebase.initializeApp(config);
+
+        var nombre = document.getElementById('nombreest');
+        var apellido = document.getElementById('apellidoest');
+        var numeroest = document.getElementById('numeroest');
+        var cursoest = document.getElementById('cursoest');
+        var fechanac = document.getElementById('fechanacest');
+        var generoest = document.getElementById('generoest');
+        var padreest = document.getElementById('padreest');
+        var madreest = document.getElementById('madreest');
+        var emailest = document.getElementById('emailest');
+
+        const auth = firebase.auth();
+        var MyKey = '';
+        //var dbRef = firebase.database().ref().child('ESTUDIANTES').child('1');
+        var dbRef = firebase.database().ref().child('ESTUDIANTES');
+        const rootRef = firebase.database().ref();
+        var root
+
+        function gotData(data) {
+            if (data.val() != null) {
+                var scores = data.val();
+                var keys = Object.keys(scores);
+                MyKey = keys[0].toString();
+                console.log(MyKey);
+                dbRef.child(MyKey).on('value', function (snap) {
+                    nombre.innerText = snap.child('nombre').val();
+                    apellido.innerText = snap.child('apellido').val();
+                    numeroest.innerText = snap.child('PERIODO').child('PERIODOSCURSADOS').child('1').child('numero').val()
+                    cursoest.innerText = snap.child('curso').val()
+                    fechanac.innerText = snap.child('fechanac').val()
+                    generoest.innerText = snap.child('genero').val()
+                    padreest.innerText = snap.child('nombrepadre').val()
+                    madreest.innerText = snap.child('nombremadre').val()
+                    emailest.innerText = snap.child('email').val()
+
+                });
+            } else {
+            }
+        }
+
+        function errData(err) {
+            console.log('¡Error!');
+            console.log(err);
+			console.log(firebaseUser.email);
+			console.log(MyKey);
+        }
+
+        auth.onAuthStateChanged(firebaseUser => {
+            if (firebaseUser) {
+                console.log(firebaseUser);
+                console.log(firebaseUser.email);
+                rootRef.child('ESTUDIANTES').orderByChild('email').equalTo(firebaseUser.email).on('value', function(snapshot) {
+				console.log(firebase.auth().currentUser.email)
+				});
+            } else {
+                console.log('Sesión Cerrada');
+                btnCerrarSesion.hidden = true;
+            }
+        });
+
+        function CerrarSesion() {
+            firebase.auth().signOut();
+        }
+
+    </script>
+
+</body>
+</html>
