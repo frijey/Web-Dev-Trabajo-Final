@@ -13,11 +13,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <style>
-    /* Make the image fully responsive */
-    .carousel-inner img {
-        width: 100%;
-        height: 100%;
-    }
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -45,41 +45,41 @@
             </div>
         </nav>
         <div id="demo" class="carousel slide" data-ride="carousel">
-                <ul class="carousel-indicators">
-                  <li data-target="#demo" data-slide-to="0" class="active"></li>
-                  <li data-target="#demo" data-slide-to="1"></li>
-                  <li data-target="#demo" data-slide-to="2"></li>
-                </ul>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
                     <img src="pics/High school.jpg" alt="Bachiller" width="340" height="100">
                     <div class="carousel-caption">
-                      <h3>Bachiller</h3>
-                      <p>Bienvenido!</p>
-                    </div>   
-                  </div>
-                  <div class="carousel-item">
+                        <h3>Bachiller</h3>
+                        <p>Bienvenido!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
                     <img src="pics/photo2.jpg" alt="estudiantes" width="340" height="100">
                     <div class="carousel-caption">
-                      <h3>Los Estudiantes</h3>
-                      <p>Siiiiiiiiiiiii!</p>
-                    </div>   
-                  </div>
-                  <div class="carousel-item">
+                        <h3>Los Estudiantes</h3>
+                        <p>Siiiiiiiiiiiii!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
                     <img src="pics/photo3.jpg" alt="Republica Dominicana" width="340" height="100">
                     <div class="carousel-caption">
-                      <h3>Republica Dominicana</h3>
-                      <p>Nuestro Pais!</p>
-                    </div>   
-                  </div>
+                        <h3>Republica Dominicana</h3>
+                        <p>Nuestro Pais!</p>
+                    </div>
                 </div>
-                <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                  <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#demo" data-slide="next">
-                  <span class="carousel-control-next-icon"></span>
-                </a>
-              </div>
+            </div>
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
 
         <div class="jumbotron">
 
@@ -99,10 +99,18 @@
                             </div>
                             <br>
 
-                            <button type="button" class="btn btn-primary" onclick="IniciarSesion()">Entrar</button> <br /><br />
+                            <center>
+                                <button type="button" class="btn btn-primary" onclick="IniciarSesion()">Entrar</button>
+                                <br />
+                                <br />
+                                <a href="" onclick="RecuperarPassword();">Olvidé mi contraseña</a>
+                            </center>
+
+                            <br />
                             <button type="button" class="btn btn-default" onclick="location.href= 'p/admin/index.html'">Administrador</button> <br /><br />
                             <button type="button" class="btn btn-default" onclick="location.href= 'p/profesor/index.html'">Profesor</button> <br /><br />
-                            <button type="button" class="btn btn-default" onclick="location.href= 'p/estudiante/index.html'">Estudiante</button>
+                            <button type="button" class="btn btn-default" onclick="location.href= 'p/estudiante/index.html'">Estudiante</button> <br /><br />
+                            <button type="button" class="btn btn-danger" id="btnCerrarSesion" hidden onclick="CerrarSesion();">Cerrar Sesión</button>
                         </form>
                     </div>
 
@@ -176,5 +184,49 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Conexión con la base de datos -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD0wEMTWqhJb9Q_fawATAEakx3gQahjeAw",
+            authDomain: "controldecalificaciones.firebaseapp.com",
+            databaseURL: "https://controldecalificaciones.firebaseio.com",
+            projectId: "controldecalificaciones",
+            storageBucket: "controldecalificaciones.appspot.com",
+            messagingSenderId: "24849732387"
+        };
+        firebase.initializeApp(config);
+
+        var email = document.getElementById('email');
+        var pass = document.getElementById('password');
+        var btnCerrarSesion = document.getElementById('btnCerrarSesion');
+        const auth = firebase.auth();
+
+        function IniciarSesion() {
+            const auth = firebase.auth();
+            const promise = auth.signInWithEmailAndPassword(email.value, pass.value);
+            promise.catch(e => console.log(e.message));
+        }
+
+        auth.onAuthStateChanged(firebaseUser => {
+            if (firebaseUser) {
+                console.log(firebaseUser);
+                btnCerrarSesion.hidden = false;
+                window.location = 'p/estudiante/index.html';
+            } else {
+                console.log('Sesión Cerrada');
+                btnCerrarSesion.hidden = true;
+            }
+        });
+
+        function CerrarSesion() {
+            firebase.auth().signOut();
+        }
+
+    </script>
+
 </body>
 </html>

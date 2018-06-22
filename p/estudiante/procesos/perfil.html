@@ -10,6 +10,7 @@
     <title>Administrador</title>
 </head>
 <body>
+
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
@@ -38,7 +39,7 @@
                         <a class="nav-link" href="../contacto.html">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../../index.html">Salir</a>
+                        <a class="nav-link" onclick="CerrarSesion();" href="../../../index.html">Salir</a>
                     </li>
                 </ul>
             </div>
@@ -49,8 +50,59 @@
             <div class="main row">
 
                 <div class="col-sm-12">
-                    <h3 class="text-yellow">Mis Perfil</h3>
+                    <center><h3 class="text-yellow">Mi Perfil</h3></center> <br />
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 " align="center"> <img src="../../../pics/profile.png" class="img-circle img-fluid img-responsive"> </div>
 
+                            <div class=" col-md-9 col-lg-9 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+
+                                        <tr>
+                                            <td>Nombre:</td>
+                                            <td id="nombreest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Apellido:</td>
+                                            <td id="apellidoest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Número:</td>
+                                            <td id="numeroest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Curso:</td>
+                                            <td id="cursoest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fecha de nacimiento:</td>
+                                            <td id="fechanacest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Género:</td>
+                                            <td id="generoest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Padre:</td>
+                                            <td id="padreest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Madre:</td>
+                                            <td id="madreest"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email:</td>
+                                            <td id="emailest"></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <a href="calificaciones.html" class="btn btn-primary">Mis Calificaciones</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,5 +121,81 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Conexión con la base de datos -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD0wEMTWqhJb9Q_fawATAEakx3gQahjeAw",
+            authDomain: "controldecalificaciones.firebaseapp.com",
+            databaseURL: "https://controldecalificaciones.firebaseio.com",
+            projectId: "controldecalificaciones",
+            storageBucket: "controldecalificaciones.appspot.com",
+            messagingSenderId: "24849732387"
+        };
+        firebase.initializeApp(config);
+
+        var nombre = document.getElementById('nombreest');
+        var apellido = document.getElementById('apellidoest');
+        var numeroest = document.getElementById('numeroest');
+        var cursoest = document.getElementById('cursoest');
+        var fechanac = document.getElementById('fechanacest');
+        var generoest = document.getElementById('generoest');
+        var padreest = document.getElementById('padreest');
+        var madreest = document.getElementById('madreest');
+        var emailest = document.getElementById('emailest');
+
+        const auth = firebase.auth();
+        var MyKey = '';
+        //var dbRef = firebase.database().ref().child('ESTUDIANTES').child('1');
+        var dbRef = firebase.database().ref().child('ESTUDIANTES');
+        const rootRef = firebase.database().ref();
+        var root
+
+        function gotData(data) {
+            if (data.val() != null) {
+                var scores = data.val();
+                var keys = Object.keys(scores);
+                MyKey = keys[0].toString();
+                dbRef.child(MyKey).on('value', function (snap) {
+                    nombre.innerText = snap.child('nombre').val();
+                    apellido.innerText = snap.child('apellido').val();
+                    numeroest.innerText = snap.child('PERIODO').child('PERIODOSCURSADOS').child('1').child('numero').val()
+                    cursoest.innerText = snap.child('curso').val()
+                    fechanac.innerText = snap.child('fechanac').val()
+                    generoest.innerText = snap.child('genero').val()
+                    padreest.innerText = snap.child('nombrepadre').val()
+                    madreest.innerText = snap.child('nombremadre').val()
+                    emailest.innerText = snap.child('email').val()
+
+                });
+            } else {
+            }
+        }
+
+        function errData(err) {
+            console.log('¡Error!');
+            console.log(err);
+        }
+
+        auth.onAuthStateChanged(firebaseUser => {
+            if (firebaseUser) {
+                console.log(firebaseUser);
+                console.log(firebaseUser.email);
+                rootRef.child('ESTUDIANTES').orderByChild('email').equalTo(firebaseUser.email).on('value', gotData, errData);
+            } else {
+                console.log('Sesión Cerrada');
+                btnCerrarSesion.hidden = true;
+            }
+        });
+
+        function CerrarSesion() {
+            firebase.auth().signOut();
+        }
+
+    </script>
+
 </body>
 </html>
