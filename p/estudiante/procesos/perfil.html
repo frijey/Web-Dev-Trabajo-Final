@@ -154,12 +154,38 @@
         const rootRef = firebase.database().ref();
         var root
 
-        function gotData(data) {
-            if (data.val() != null) {
-                var scores = data.val();
-                var keys = Object.keys(scores);
-                MyKey = keys[0].toString();
-                console.log(MyKey);
+        //function gotData(data) {
+        //    if (data.val() != null) {
+        //        var scores = data.val();
+        //        var keys = Object.keys(scores);
+        //        MyKey = keys[0].toString();
+        //        console.log(MyKey);
+        //        dbRef.child(MyKey).on('value', function (snap) {
+        //            nombre.innerText = snap.child('nombre').val();
+        //            apellido.innerText = snap.child('apellido').val();
+        //            numeroest.innerText = snap.child('PERIODO').child('PERIODOSCURSADOS').child('1').child('numero').val()
+        //            cursoest.innerText = snap.child('curso').val()
+        //            fechanac.innerText = snap.child('fechanac').val()
+        //            generoest.innerText = snap.child('genero').val()
+        //            padreest.innerText = snap.child('nombrepadre').val()
+        //            madreest.innerText = snap.child('nombremadre').val()
+        //            emailest.innerText = snap.child('email').val()
+
+        //        });
+        //    } else {
+        //    }
+        //}
+        
+        function errData(err) {
+            console.log('¡Error!');
+            console.log(err);
+        }
+
+        auth.onAuthStateChanged(firebaseUser => {
+            if (firebaseUser) {
+                console.log(firebaseUser);
+                MyKey = firebaseUser.uid;
+                //rootRef.child('ESTUDIANTES').orderByChild('uid').equalTo(firebaseUser.uid).on('value', gotData, errData);
                 dbRef.child(MyKey).on('value', function (snap) {
                     nombre.innerText = snap.child('nombre').val();
                     apellido.innerText = snap.child('apellido').val();
@@ -172,20 +198,6 @@
                     emailest.innerText = snap.child('email').val()
 
                 });
-            } else {
-            }
-        }
-
-        function errData(err) {
-            console.log('¡Error!');
-            console.log(err);
-        }
-
-        auth.onAuthStateChanged(firebaseUser => {
-            if (firebaseUser) {
-                console.log(firebaseUser);
-                console.log(firebaseUser.email);
-                rootRef.child('ESTUDIANTES').orderByChild('email').equalTo(firebaseUser.email).on('value', gotData, errData);
             } else {
                 console.log('Sesión Cerrada');
                 btnCerrarSesion.hidden = true;

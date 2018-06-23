@@ -100,6 +100,20 @@
                                 </table>
 
                                 <a href="calificaciones.html" class="btn btn-primary">Mis Calificaciones</a>
+
+                                <br />
+                                <br />
+                                <br />
+
+                                <div class="loginBox">
+                                    <label for="exampleInputEmail1">New Email</label>
+                                    <input type="text" class="form-control" id="newemail" placeholder="Email" value="test@hotmail.com">
+                                    <br />
+                                    <label for="exampleInputEmail1">New Password</label>
+                                    <input type="text" class="form-control" id="newpass" placeholder="Pass" value="123456">
+
+                                </div>
+                                <br /><a onclick="RegistrarUsuario();" class="btn btn-warning">Registrar Nuevo Usuario</a>
                             </div>
                         </div>
                     </div>
@@ -137,6 +151,8 @@
         };
         firebase.initializeApp(config);
 
+        var secondaryApp = firebase.initializeApp(config, "Secondary");
+
         var nombre = document.getElementById('nombreest');
         var apellido = document.getElementById('apellidoest');
         var numeroest = document.getElementById('numeroest');
@@ -147,8 +163,13 @@
         var madreest = document.getElementById('madreest');
         var emailest = document.getElementById('emailest');
 
+        var newemail = document.getElementById('newemail');
+        var newpass = document.getElementById('newpass');
+
         const auth = firebase.auth();
         var MyKey = '';
+        var NewUserUid = '';
+
         //var dbRef = firebase.database().ref().child('ESTUDIANTES').child('1');
         var dbRef = firebase.database().ref().child('ESTUDIANTES');
         const rootRef = firebase.database().ref();
@@ -179,17 +200,17 @@
         function errData(err) {
             console.log('¡Error!');
             console.log(err);
-			console.log(firebaseUser.email);
-			console.log(MyKey);
+            console.log(firebaseUser.email);
+            console.log(MyKey);
         }
 
         auth.onAuthStateChanged(firebaseUser => {
             if (firebaseUser) {
                 console.log(firebaseUser);
                 console.log(firebaseUser.email);
-                rootRef.child('ESTUDIANTES').orderByChild('email').equalTo(firebaseUser.email).on('value', function(snapshot) {
-				console.log(firebase.auth().currentUser.email)
-				});
+                rootRef.child('ESTUDIANTES').orderByChild('email').equalTo(firebaseUser.email).on('value', function (snapshot) {
+                    console.log(firebase.auth().currentUser.email)
+                });
             } else {
                 console.log('Sesión Cerrada');
                 btnCerrarSesion.hidden = true;
@@ -199,6 +220,36 @@
         function CerrarSesion() {
             firebase.auth().signOut();
         }
+
+        function RegistrarUsuario() {
+            //alert(newemail.value + ' ' + newpass.value);
+
+            //firebase.auth().createUserWithEmailAndPassword(newemail.value, newpass.value).then(function (user) {
+            //    var user = firebase.auth().currentUser;
+            //    console.log(user);
+            //}, function (error) {
+            //    // Handle Errors here.
+            //    var errorCode = error.code;
+            //    var errorMessage = error.message;
+            //    console.log(errorMessage);
+            //    });
+
+            secondaryApp.auth().createUserWithEmailAndPassword(newemail.value, newpass.value).then(function (firebaseUser) {
+                NewUserUid = firebaseUser.user.uid;
+                console.log(NewUserUid)
+                secondaryApp.auth().signOut();
+            });
+
+            //secondaryApp.auth().onAuthStateChanged((user) => {
+            //    if (user) {
+            //        NewUserUid =  user.uid;
+
+
+            //    }
+            //});
+
+        }
+
 
     </script>
 
