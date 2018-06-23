@@ -103,14 +103,14 @@
                                 <button type="button" class="btn btn-primary" onclick="IniciarSesion()">Entrar</button>
                                 <br />
                                 <br />
-                                <a href="" onclick="RecuperarPassword();">Olvidé mi contraseña</a>
+                                <!--<a href="" onclick="RecuperarPassword();">Olvidé mi contraseña</a>-->
                             </center>
 
                             <br />
-                            <button type="button" class="btn btn-default" onclick="location.href= 'p/admin/index.html'">Administrador</button> <br /><br />
+                            <!--<button type="button" class="btn btn-default" onclick="location.href= 'p/admin/index.html'">Administrador</button> <br /><br />
                             <button type="button" class="btn btn-default" onclick="location.href= 'p/profesor/index.html'">Profesor</button> <br /><br />
                             <button type="button" class="btn btn-default" onclick="location.href= 'p/estudiante/index.html'">Estudiante</button> <br /><br />
-                            <button type="button" class="btn btn-danger" id="btnCerrarSesion" hidden onclick="CerrarSesion();">Cerrar Sesión</button>
+                            <button type="button" class="btn btn-danger" id="btnCerrarSesion" hidden onclick="CerrarSesion();">Cerrar Sesión</button>-->
                         </form>
                     </div>
 
@@ -118,53 +118,52 @@
 
                 <div class="col-xs-12 col-sm-6 text-justify">
                     <p>
-                        <h3 class="text-yellow">Bienvenidos</h3>
+                        <h3 class="text-yellow" id="bienvenida">Bienvenidos</h3>
+                    <p id="bienvenidaparrafo">
                         Por el momento, el proceso de exposición sería aclarar las bases que sustentan lo que es BootStrap
                         sin sobrepasar a los temas de los siguientes grupos de exposición Estaróamos aclarando en un principio
                         las bases del Front-End.Por el momento, el proceso de exposición sería aclarar las bases que sustentan lo que es BootStrap
                         sin sobrepasar a los temas de los siguientes grupos de exposición Estaróamos aclarando en un principio
                         las bases del Front-End.
                     </p>
-                    <p class="lead">
-                        <a class="btn btn-warning btn-lg" href="#" role="button">Comprar</a>
                     </p>
                 </div>
             </div>
 
             <div class="main row">
                 <div class="col-xs-12 col-sm-6 col-md-4 text-justify">
-                    <p>
-                        <h3 class="text-danger">Matemática</h3>
-                        Recordatorio: Este viernes 29 de junio tendremos una actividad especial de ajedrez al horario de receso. 
-                        No se les olvidan la oportunidad. Habrán tres ganadores con premios especiales ¿crees que vas a ganar? 
+                    <h3 class="text-danger" id="noticia1">Matemática</h3>
+                    <p id="noticia1parrafo">
+                        Este viernes 29 de junio tendremos una actividad especial de ajedrez al horario de receso.
+                        No se les olvidan la oportunidad. Habrán tres ganadores con premios especiales ¿crees que vas a ganar?
                         Solo hay una forma de saber.
                     </p>
                     <p class="lead">
-                        <a class="btn btn-danger btn-lg" href="#" role="button">Regístrate</a>
+                        <a class="btn btn-danger btn-lg" href="#" role="button">Leer más</a>
                     </p>
                 </div>
 
                 <div class="col-xs-12 col-sm-6 col-md-4 text-justify">
-                    <p>
-                        <h3 class="text-yellow">Lengua español</h3>
-                        ¿Tienes problemas con el español? No te preocupes, estamos aquí para ayudarte. 
-                        Regístrate el martes 26 de junio en el edificio nuevo piso decimoséptimo piso. 
+                    <h3 class="text-yellow" id="noticia2">Lengua español</h3>
+                    <p id="noticia2parrafo">
+                        ¿Tienes problemas con el español? No te preocupes, estamos aquí para ayudarte.
+                        Regístrate el martes 26 de junio en el edificio nuevo piso decimoséptimo piso.
                         Conocerás los mejores profesores con clases cortos de auto aprendizaje.
                     </p>
                     <p class="lead">
-                        <a class="btn btn-warning btn-lg" href="#" role="button">Regístrate</a>
+                        <a class="btn btn-warning btn-lg" href="#" role="button">Leer más</a>
                     </p>
                 </div>
 
                 <div class="col-xs-12 col-sm-6 col-md-4 text-justify">
-                    <p>
-                        <h3 class="text-success">Ingles</h3>
-                        No te quedes atrás, aprendes ingles de una vez en laboratorio azul, al lado de la cafetería. 
-                        Los primeros veinte personas que registran ganaran un premio secreto. 
+                    <h3 class="text-success" id="noticia3">Ingles</h3>
+                    <p id="noticia3parrafo">
+                        No te quedes atrás, aprendes ingles de una vez en laboratorio azul, al lado de la cafetería.
+                        Los primeros veinte personas que registran ganaran un premio secreto.
                         Ultimo día para registrar es hoy!
                     </p>
                     <p class="lead">
-                        <a class="btn btn-success btn-lg" href="#" role="button">Regístrate</a>
+                        <a class="btn btn-success btn-lg" href="#" role="button">Leer más</a>
                     </p>
                 </div>
             </div>
@@ -203,23 +202,63 @@
         var email = document.getElementById('email');
         var pass = document.getElementById('password');
         var btnCerrarSesion = document.getElementById('btnCerrarSesion');
+
         const auth = firebase.auth();
+        var UserUID = '';
 
         function IniciarSesion() {
             const auth = firebase.auth();
             const promise = auth.signInWithEmailAndPassword(email.value, pass.value);
-            promise.catch(e => console.log(e.message));
+            promise.catch(e => alert(e.message));
         }
 
         auth.onAuthStateChanged(firebaseUser => {
             if (firebaseUser) {
                 console.log(firebaseUser);
-                btnCerrarSesion.hidden = false;
-                window.location = 'p/estudiante/index.html';
+                UserUID = firebaseUser.uid;
+                definirRol();
             } else {
                 console.log('Sesión Cerrada');
-                btnCerrarSesion.hidden = true;
             }
+        });
+
+        function definirRol() {
+            firebase.database().ref('ROLES/' + UserUID + '/rol').once('value').then(function (snapshot) {
+                if (snapshot != null) {
+                    //Asignar el número buscado
+                    if (snapshot.val() == "admin") {
+                        window.location = 'p/admin/index.html';
+                    } else if (snapshot.val() == "prof") {
+                        window.location = 'p/profesor/index.html';
+                    } else if (snapshot.val() == "est") {
+                        window.location = 'p/estudiante/index.html';
+                    } else if (snapshot.val() == "prof") {
+                        alert('No se reconoce la cuenta...');
+                    }
+
+                } else {
+                }
+            });
+        }
+
+        var bienvenida = document.getElementById('bienvenida');
+        var bienvenidaparrafo = document.getElementById('bienvenidaparrafo');
+        var noticia1 = document.getElementById('noticia1');
+        var noticia1parrafo = document.getElementById('noticia1parrafo');
+        var noticia2 = document.getElementById('noticia2');
+        var noticia2parrafo = document.getElementById('noticia2parrafo');
+        var noticia3 = document.getElementById('noticia3');
+        var noticia3parrafo = document.getElementById('noticia3parrafo');
+
+        firebase.database().ref().child('CONFIGURACION').on('value', function (snapshot) {
+            bienvenida.innerHTML = snapshot.child("bienvenida").child("titulo").val();
+            bienvenidaparrafo.innerHTML = snapshot.child("bienvenida").child("contenido").val();
+            noticia1.innerHTML = snapshot.child("noticia1").child("titulo").val();
+            noticia1parrafo.innerHTML = snapshot.child("noticia1").child("contenido").val();
+            noticia2.innerHTML = snapshot.child("noticia2").child("titulo").val();
+            noticia2parrafo.innerHTML = snapshot.child("noticia2").child("contenido").val();
+            noticia3.innerHTML = snapshot.child("noticia3").child("titulo").val();
+            noticia3parrafo.innerHTML = snapshot.child("noticia3").child("contenido").val();
         });
 
         function CerrarSesion() {

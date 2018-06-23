@@ -39,7 +39,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" onclick="CerrarSesion();" href="../../index.html">Salir</a>
+                        <a class="nav-link" onclick="CerrarSesion();" href="">Salir</a>
                     </li>
 
                 </ul>
@@ -55,55 +55,54 @@
 
                 </div>
 
-                <div class="col-sm-12 col-md-6 text-justify">
+                <div class="col-xs-12 col-sm-6 text-justify">
                     <p>
-                        <h3 class="text-yellow">Bienvenidos</h3>
+                        <h3 class="text-yellow" id="bienvenida">Bienvenidos</h3>
+                    <p id="bienvenidaparrafo">
                         Por el momento, el proceso de exposición sería aclarar las bases que sustentan lo que es BootStrap
                         sin sobrepasar a los temas de los siguientes grupos de exposición Estaróamos aclarando en un principio
                         las bases del Front-End.Por el momento, el proceso de exposición sería aclarar las bases que sustentan lo que es BootStrap
                         sin sobrepasar a los temas de los siguientes grupos de exposición Estaróamos aclarando en un principio
                         las bases del Front-End.
                     </p>
-                    <p class="lead">
-                        <a class="btn btn-warning btn-lg" href="#" role="button">Comprar</a>
                     </p>
                 </div>
             </div>
 
             <div class="main row">
                 <div class="col-xs-12 col-sm-6 col-md-4 text-justify">
-                    <p>
-                        <h3 class="text-danger">Manzanas</h3>
-                        Por el momento, el proceso de exposición sería aclarar las bases que sustentan lo que es BootStrap
-                        sin sobrepasar a los temas de los siguientes grupos de exposición Estaróamos aclarando en un principio
-                        las bases del Front-End.
+                    <h3 class="text-danger" id="noticia1">Matemática</h3>
+                    <p id="noticia1parrafo">
+                        Este viernes 29 de junio tendremos una actividad especial de ajedrez al horario de receso.
+                        No se les olvidan la oportunidad. Habrán tres ganadores con premios especiales ¿crees que vas a ganar?
+                        Solo hay una forma de saber.
                     </p>
                     <p class="lead">
-                        <a class="btn btn-danger btn-lg" href="#" role="button">Comprar</a>
+                        <a class="btn btn-danger btn-lg" href="#" role="button">Leer más</a>
                     </p>
                 </div>
 
                 <div class="col-xs-12 col-sm-6 col-md-4 text-justify">
-                    <p>
-                        <h3 class="text-yellow">Bananas</h3>
-                        Por el momento, el proceso de exposición sería aclarar las bases que sustentan lo que es BootStrap
-                        sin sobrepasar a los temas de los siguientes grupos de exposición Estaróamos aclarando en un principio
-                        las bases del Front-End.
+                    <h3 class="text-yellow" id="noticia2">Lengua español</h3>
+                    <p id="noticia2parrafo">
+                        ¿Tienes problemas con el español? No te preocupes, estamos aquí para ayudarte.
+                        Regístrate el martes 26 de junio en el edificio nuevo piso decimoséptimo piso.
+                        Conocerás los mejores profesores con clases cortos de auto aprendizaje.
                     </p>
                     <p class="lead">
-                        <a class="btn btn-warning btn-lg" href="#" role="button">Comprar</a>
+                        <a class="btn btn-warning btn-lg" href="#" role="button">Leer más</a>
                     </p>
                 </div>
 
                 <div class="col-xs-12 col-sm-6 col-md-4 text-justify">
-                    <p>
-                        <h3 class="text-success">Limones</h3>
-                        Por el momento, el proceso de exposición sería aclarar las bases que sustentan lo que es BootStrap
-                        sin sobrepasar a los temas de los siguientes grupos de exposición Estaróamos aclarando en un principio
-                        las bases del Front-End.
+                    <h3 class="text-success" id="noticia3">Ingles</h3>
+                    <p id="noticia3parrafo">
+                        No te quedes atrás, aprendes ingles de una vez en laboratorio azul, al lado de la cafetería.
+                        Los primeros veinte personas que registran ganaran un premio secreto.
+                        Ultimo día para registrar es hoy!
                     </p>
                     <p class="lead">
-                        <a class="btn btn-success btn-lg" href="#" role="button">Comprar</a>
+                        <a class="btn btn-success btn-lg" href="#" role="button">Leer más</a>
                     </p>
                 </div>
             </div>
@@ -154,44 +153,33 @@
             }
         });
 
-        //rootRef.child('ESTUDIANTES').orderByChild('email').equalTo('Hola@gmail.com').on('value', gotData, errData);
+        var bienvenida = document.getElementById('bienvenida');
+        var bienvenidaparrafo = document.getElementById('bienvenidaparrafo');
+        var noticia1 = document.getElementById('noticia1');
+        var noticia1parrafo = document.getElementById('noticia1parrafo');
+        var noticia2 = document.getElementById('noticia2');
+        var noticia2parrafo = document.getElementById('noticia2parrafo');
+        var noticia3 = document.getElementById('noticia3');
+        var noticia3parrafo = document.getElementById('noticia3parrafo');
 
-        //function gotData(data) {
-        //    if (data.val() != null) {
-        //        //console.log(data.val());
-        //        var scores = data.val();
-        //        var keys = Object.keys(scores);
-        //        console.log(data.val());
-        //        console.log(keys[0]);
-        //        //for (var i = 0; i < keys.length; i++) {
-        //        //    var k = keys[i];
-        //        //    var initials = scores[k].initials;
-        //        //    var score = scores[k].score;
-        //        //    console.log(initials, score)
-        //        //}
-        //    } else {
-
-        //    }
-        //}
-
-        //function errData(err) {
-        //    console.log('¡Error!');
-        //    console.log(err);
-        //}
-
-        //function ConseguirId() {
-        //    var Key = 'Nothing';
-        //    rootRef.child('ESTUDIANTES').orderByChild('email').equalTo('frijey@hotmail.com').on("value", function (snapshot) {
-        //        console.log(snapshot.child.Key); 
-        //    });
-
-        //    console.log(userkey);
-        //}
+        firebase.database().ref().child('CONFIGURACION').on('value', function (snapshot) {
+            bienvenida.innerHTML = snapshot.child("bienvenida").child("titulo").val();
+            bienvenidaparrafo.innerHTML = snapshot.child("bienvenida").child("contenido").val();
+            noticia1.innerHTML = snapshot.child("noticia1").child("titulo").val();
+            noticia1parrafo.innerHTML = snapshot.child("noticia1").child("contenido").val();
+            noticia2.innerHTML = snapshot.child("noticia2").child("titulo").val();
+            noticia2parrafo.innerHTML = snapshot.child("noticia2").child("contenido").val();
+            noticia3.innerHTML = snapshot.child("noticia3").child("titulo").val();
+            noticia3parrafo.innerHTML = snapshot.child("noticia3").child("contenido").val();
+        });
 
         function CerrarSesion() {
             firebase.auth().signOut();
             window.location = '../../index.html';
         }
+    </script>
+
+
 
     </script>
 
