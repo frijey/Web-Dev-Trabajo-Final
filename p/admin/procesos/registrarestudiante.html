@@ -59,6 +59,9 @@
                                 <input class="btn btn-warning" type="button" value="Cargar Imagen" onclick="document.getElementById('selectedFile').click();" />
                                 <br />
                                 <br />
+                                <input class="form-control" type="text" value="" id="rutafoto" placeholder="Ruta foto" disabled>
+                                <br />
+                                <br />
                             </div>
 
 
@@ -88,7 +91,7 @@
                                 <div class="form-group">
                                     <label for="example-date-input" class="col-12 col-form-label">Fecha de Nacimiento</label>
                                     <div class="col-10">
-                                        <input class="form-control" type="date" value="2000-01-01" id="fechanacest">
+                                        <input class="form-control" type="date" value="2000-01-01" id="fechanac">
                                     </div>
                                 </div>
 
@@ -97,7 +100,6 @@
                                         <label for="exampleSelect1">Curso</label>
                                         <select class="form-control" id="cursoest">
                                             <option></option>
-                                            <option>1-A</option>
                                         </select>
                                     </div>
                                 </div>
@@ -105,30 +107,47 @@
                                 <div class="form-group">
                                     <label for="example-text-input" class="col-12 col-form-label">Nombre del Papá</label>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" value="test1" id="nombrepadre" placeholder="nomb. padre">
+                                        <input class="form-control" type="text" value="TestNombrePadre" id="nombrepadre" placeholder="nomb. padre">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="example-text-input" class="col-12 col-form-label">Nombre de la Mamá</label>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" value="test1" id="nombremadre" placeholder="nomb. madre">
+                                        <input class="form-control" type="text" value="TestNombreMadre" id="nombremadre" placeholder="nomb. madre">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="example-text-input" class="col-12 col-form-label">Teléfono</label>
+                                    <div class="col-10">
+                                        <input class="form-control" type="text" value="809-574-0000" id="telest" placeholder="teléfono">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="example-text-input" class="col-12 col-form-label">Email</label>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" value="test1" id="emailest" placeholder="email@dominio.com">
+                                        <input class="form-control" type="text" value="emaildeprueba@hotmail.com" id="newemail" placeholder="email@dominio.com">
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="example-text-input" class="col-12 col-form-label">Contraseña</label>
+                                    <div class="col-10">
+                                        <input class="form-control" type="text" value="123456" id="newpass" placeholder="contraseña">
+                                    </div>
+                                </div>
+
+                                <a onclick="Registrar();" class="btn btn-success active">Registrar</a>
+                                <a onclick="window.location.reload()" class="btn btn-danger active">Cancelar</a>
+                                <a onclick="" class="btn btn-info active">Modificar</a>
+                                <br />
+                                <br />
+
                             </div>
 
-                            <a onclick="Registrar();" class="btn btn-success">Registrar</a>
-                            <a onclick="window.location.reload()" class="btn btn-danger">Cancelar</a>
-                            <br />
-                            <br />
+
 
                         </div>
                     </div>
@@ -166,22 +185,207 @@
         };
         firebase.initializeApp(config);
 
-        var nombre = document.getElementById('nombreest');
-        var apellido = document.getElementById('apellidoest');
-        var numeroest = document.getElementById('numeroest');
-        var cursoest = document.getElementById('cursoest');
-        var fechanac = document.getElementById('fechanacest');
-        var generoest = document.getElementById('generoest');
-        var padreest = document.getElementById('padreest');
-        var madreest = document.getElementById('madreest');
-        var emailest = document.getElementById('emailest');
+        var secondaryApp = firebase.initializeApp(config, "Secondary");
 
+        var actualphoto = document.getElementById('imgestudiante');
+        var file = document.getElementById('selectedFile');
+        var rutafoto = document.getElementById('rutafoto');
+        var nombrest = document.getElementById('nombreest');
+        var apellidoest = document.getElementById('apellidoest');
+        var generoest = document.getElementById('generoest');
+        var fechanac = document.getElementById('fechanac');
+        var cursoest = document.getElementById('cursoest');
+        var nombrepadre = document.getElementById('nombrepadre');
+        var nombremadre = document.getElementById('nombremadre');
+        var telest = document.getElementById('telest');
+
+        var newemail = document.getElementById('newemail');
+        var newpass = document.getElementById('newpass');
+
+        var numeroest = '77';
         const auth = firebase.auth();
         var MyKey = '';
-        //var dbRef = firebase.database().ref().child('ESTUDIANTES').child('1');
+        var fotourl = actualphoto.src;
+        var NewUserUid = 'TESTuid-asdasdasd';
+        var ActualPeriodo = '';
         var dbRef = firebase.database().ref().child('ESTUDIANTES');
         const rootRef = firebase.database().ref();
-        var root
+        var foundData = false;
+        var CountEstudiantes = 1;
+        var RolesCount = 1;
+        var fileFrom;
+
+        file.addEventListener('change', function (e) {
+
+            //Get file
+            fileFrom = e.target.files[0];
+            rutafoto.value = e.target.value;
+
+            firebase.database().ref('CURSOS/' + cursoest.value + '/numero').once('value').then(function (snapshot) {
+                if (snapshot != null) {
+                    //Asignar el número buscado
+                    numeroest = snapshot.val();
+
+                } else {
+                }
+            });
+
+        });
+
+        cursoest.addEventListener('change', function (e) {
+
+            firebase.database().ref('CURSOS/' + cursoest.value + '/numero').once('value').then(function (snapshot) {
+                if (snapshot != null) {
+                    //Asignar el número buscado
+                    numeroest = snapshot.val();
+
+                } else {
+                }
+            });
+
+        });
+
+
+        function Registrar() {
+
+            //validar que ningún campo esté vacío...
+            if (nombrest.value == "" || apellidoest.value == "" || generoest.value == "" || fechanac.value == "" || cursoest.value == "" ||
+                nombrepadre.value == "" || nombremadre.value == "" || telest.value == "" || newemail.value == "" || newpass.value == "" || rutafoto.value == "") {
+                alert('Rellene todos los campos y seleccione la foto del estudiante');
+                return;
+            } else {
+                //Continue
+            }
+
+            const promise = secondaryApp.auth().createUserWithEmailAndPassword(newemail.value, newpass.value);
+            promise.catch(e => alert(e.message));
+
+            //NewUserUid = firebaseUser.user.uid;
+            //console.log(NewUserUid)
+            //secondaryApp.auth().signOut();
+
+        }
+
+
+        secondaryApp.auth().onAuthStateChanged((user) => {
+            if (user) {
+                NewUserUid = user.uid;
+                console.log(NewUserUid)
+                conseguirNumero();
+                ProcesoDeRegistro();
+                secondaryApp.auth().signOut();
+            } else {
+            }
+        });
+
+
+        rootRef.child('ESTUDIANTES').child('count').on('value', function (snapshot) {
+            CountEstudiantes = snapshot.val();
+            console.log(CountEstudiantes);
+        });
+
+        rootRef.child('ROLES').child('count').on('value', function (snapshot) {
+            RolesCount = snapshot.val();
+            console.log(CountEstudiantes);
+        });
+
+        rootRef.child('CURSOS').on('value', function (snapshot) {
+            //Vaciar DropDown
+            cursoest.options.length = 0;
+
+            //Llenar el Dropdown
+            var scores = snapshot.val();
+            var Keys = Object.keys(scores);
+
+            console.log(Keys);
+            for (var i = 0; i < (Keys.length - 1); i++) {
+                var opt = Keys[i];
+                var el = document.createElement("option");
+                el.textContent = opt;
+                el.value = opt;
+                cursoest.appendChild(el);
+            }
+
+        });
+
+        rootRef.child('periodoactual').on('value', function (snapshot) {
+            ActualPeriodo = snapshot.val();
+            console.log(ActualPeriodo);
+        });
+
+        function conseguirNumero() {
+            firebase.database().ref('CURSOS/' + cursoest.value + '/numero').once('value').then(function (snapshot) {
+                if (snapshot != null) {
+                    //Asignar el número buscado
+                    numeroest = snapshot.val();
+                    console.log(numeroest);
+                    //numeroest = numeroest.child('numero').val();
+
+                    //Aumentar uno al número
+                    firebase.database().ref('CURSOS/' + cursoest.value + '/').set({
+                        numero: (numeroest + 1),
+                        estado: 'ACTIVO',
+                    });
+
+                } else {
+                }
+            });
+        }
+
+        function ProcesoDeRegistro() {
+
+            firebase.database().ref('ESTUDIANTES/' + NewUserUid).set({
+                nombre: nombrest.value,
+                apellido: apellidoest.value,
+                genero: generoest.value,
+                fechanac: fechanac.value,
+                curso: cursoest.value,
+                PERIODO: {
+                    PERIODOSCURSADOS: {
+                        [ActualPeriodo]: {
+                            curso: cursoest.value,
+                            numero: numeroest,
+                        },
+                    },
+                },
+                nombrepadre: nombrepadre.value,
+                nombremadre: nombremadre.value,
+                telefono: telest.value,
+                email: newemail.value,
+                uid: NewUserUid,
+                foto: 'fotos/' + NewUserUid + '.jpg'
+
+            });
+
+            //Aumentar uno al número
+            firebase.database().ref('ESTUDIANTES/').update({
+                count: (CountEstudiantes + 1),
+            });
+
+            firebase.database().ref('ROLES/' + NewUserUid).set({
+                rol: 'est'
+            });
+            //Aumentar uno al número
+            firebase.database().ref('ROLES/').update({
+                count: (RolesCount + 1),
+            });
+
+            //Upload the profile picture
+            //Create storage ref
+            var storageref = firebase.storage().ref('fotos/' + NewUserUid + '.jpg');
+
+            //Upload file
+            var task = storageref.put(fileFrom);
+
+            task.on('state_changed', function progress(snapshot) {
+
+            }, function error(err) {
+                alert('Hubo un error al subir la foto a la nube');
+            }, function complete() {
+                window.location.reload();
+            })
+
+        }
 
         //function gotData(data) {
         //    if (data.val() != null) {
@@ -213,28 +417,15 @@
         auth.onAuthStateChanged(firebaseUser => {
             if (firebaseUser) {
                 console.log(firebaseUser);
-                MyKey = firebaseUser.uid;
-                //rootRef.child('ESTUDIANTES').orderByChild('uid').equalTo(firebaseUser.uid).on('value', gotData, errData);
-                dbRef.child(MyKey).on('value', function (snap) {
-                    nombre.innerText = snap.child('nombre').val();
-                    apellido.innerText = snap.child('apellido').val();
-                    numeroest.innerText = snap.child('PERIODO').child('PERIODOSCURSADOS').child('1').child('numero').val()
-                    cursoest.innerText = snap.child('curso').val()
-                    fechanac.innerText = snap.child('fechanac').val()
-                    generoest.innerText = snap.child('genero').val()
-                    padreest.innerText = snap.child('nombrepadre').val()
-                    madreest.innerText = snap.child('nombremadre').val()
-                    emailest.innerText = snap.child('email').val()
-
-                });
             } else {
                 console.log('Sesión Cerrada');
-                btnCerrarSesion.hidden = true;
+                CerrarSesion();
             }
         });
 
         function CerrarSesion() {
             firebase.auth().signOut();
+            window.location = '../../../index.html';
         }
 
     </script>

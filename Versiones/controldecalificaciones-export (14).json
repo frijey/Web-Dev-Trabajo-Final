@@ -1,0 +1,229 @@
+{
+  "CONFIGURACION" : {
+    "bienvenida" : {
+      "contenido" : "Bienvenidos a la página oficial de nuestra escuela",
+      "titulo" : "Bienvenidos"
+    },
+    "nosotros" : {
+      "contenido" : "BLABLABLA",
+      "titulo" : "Nosotros"
+    },
+    "noticia1" : {
+      "contenido" : "Este es el contenido de la noticia 1",
+      "titulo" : "Título de la noticia 1"
+    },
+    "noticia2" : {
+      "contenido" : "Este es el conte. de la news 2",
+      "titulo" : "Los Estud... Not 2"
+    },
+    "noticia3" : {
+      "contenido" : "Luego de una ardua investigación dentro del... 3",
+      "titulo" : "Title GN 3"
+    }
+  },
+  "CURSOS" : {
+    "1-A" : {
+      "estado" : "ACTIVO",
+      "numero" : 3
+    },
+    "1-B" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "2-A" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "2-B" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "3-A" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "5-A" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "M2-B" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "M4-A" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "M6-B" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "count" : 9
+  },
+  "ESTUDIANTES" : {
+    "MVwBulMfiFff16cnLCsrSgpl7e02" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : "77"
+        } ]
+      },
+      "apellido" : "TestApellido",
+      "curso" : "1-A",
+      "email" : "emaildeprueba@hotmail.com",
+      "fechanac" : "2000-01-01",
+      "foto" : "fotos/MVwBulMfiFff16cnLCsrSgpl7e02.jpg",
+      "genero" : "Masculino",
+      "nombre" : "TestNombre",
+      "nombremadre" : "TestNombreMadre",
+      "nombrepadre" : "TestNombrePadre",
+      "telefono" : "809-574-0000",
+      "uid" : "MVwBulMfiFff16cnLCsrSgpl7e02"
+    },
+    "P2neHUudqQYFOK76FjxaL70nDT32" : {
+      "email" : "hola@gmail.com",
+      "nombre" : "Peter Pan",
+      "uid" : "P2neHUudqQYFOK76FjxaL70nDT32"
+    },
+    "S5v8jzCmAKUNCaSh15RIk0KN8x63" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 14
+        }, {
+          "numero" : 7
+        }, {
+          "numero" : 4
+        } ]
+      },
+      "apellido" : "Marte Bonifacio",
+      "contacto" : "809-574-7567",
+      "curso" : "1-A",
+      "email" : "frijey@hotmail.com",
+      "estado" : "ACTIVO",
+      "fechanac" : "1995-07-08",
+      "genero" : "Masculino",
+      "nombre" : "Jeffry",
+      "nombremadre" : "Rosaura Bonifacio",
+      "nombrepadre" : "Ignacio Marte",
+      "rol" : "est",
+      "uid" : "S5v8jzCmAKUNCaSh15RIk0KN8x63"
+    },
+    "Xycp6MfwxAVYGC46L8s8kJ8gcPk1" : {
+      "apellido" : "SANTOS",
+      "contacto" : "829-404-6626",
+      "curso" : "1-A",
+      "email" : "galvinsantos@gmail.com",
+      "estado" : "ACTIVO",
+      "fechanac" : "1990-04-25",
+      "nombre" : "Galvin",
+      "nombremadre" : "María Estévez",
+      "nombrepadre" : "Jhon Worker",
+      "uid" : "Xycp6MfwxAVYGC46L8s8kJ8gcPk1"
+    },
+    "count" : 3
+  },
+  "MATERIAS" : {
+    "CIENCIAS DE LA NATURALEZA" : "NAT",
+    "CIENCIAS SOCIALES" : "SOC",
+    "EDUCACIÓN ARTÍSTICA" : "ART",
+    "EDUCACIÓN CÍVICA" : "CIV",
+    "EDUCACIÓN FÍSICA" : "FIS",
+    "EDUCACIÓN TÉCNICA" : "TEC",
+    "FORMACIÓN INTEGRAL HUMANA Y RELIGIOSA" : "FOR",
+    "FRANCÉS" : "FRA",
+    "INGLÉS" : "ING",
+    "LENGUA ESPAÑOLA" : "ESP",
+    "MATEMÁTICAS" : "MAT",
+    "count" : 11
+  },
+  "PERIODOESCOLAR" : {
+    "1" : {
+      "CURSOS" : {
+        "1-A" : {
+          "ESTUDIANTES" : [ null, "frijey@hotmail.com", "test1@gmail.com" ],
+          "MATERIAS" : [ null, {
+            "CALIFICACIONES" : {
+              "OCTUBRE" : [ null, 90, 99 ],
+              "SEPTIEMBRE" : [ null, 85, 0 ]
+            },
+            "idcurso" : "1-A",
+            "idmateria" : "NAT",
+            "idprofe" : "4H2FBlocxahxij1fPb4mSCgR0ct2",
+            "nombre" : "CIENCIAS DE LA NATURALEZA"
+          }, {
+            "idcurso" : "1-A",
+            "idmateria" : "ESP",
+            "idprofe" : "ArfluCrif9Qc4M7Lph62hnj99Wy1",
+            "nombre" : "LENGUA ESPAÑOLA"
+          } ],
+          "estado" : "VIGENTE"
+        }
+      },
+      "añodesde" : 2018,
+      "añohasta" : 2019,
+      "estado" : "VIGENTE",
+      "fechainicio" : "2018-08-27"
+    },
+    "count" : 1
+  },
+  "PROFESORES" : {
+    "1" : {
+      "PERIODOS" : [ null, {
+        "MATERIAS" : [ null, {
+          "curso" : "1-A",
+          "idmateria" : "NAT"
+        } ]
+      } ],
+      "cedula" : "050-0000000-0",
+      "contacto" : "809-000-0000",
+      "email" : "profeluis@gmail.com",
+      "estado" : "ACTIVO",
+      "fechainicio" : "2018-08-21",
+      "fechanac" : "1880-03-27",
+      "nombre" : "Luis Pérez Bueno",
+      "uid" : "4H2FBlocxahxij1fPb4mSCgR0ct2"
+    },
+    "2" : {
+      "PERIODOS" : [ null, {
+        "MATERIAS" : [ null, {
+          "curso" : "1-A",
+          "idmateria" : "ESP"
+        } ]
+      } ],
+      "cedula" : "050-0000000-1",
+      "contacto" : "809-000-1111",
+      "email" : "profekeny@gmail.com",
+      "estado" : "ACTIVO",
+      "fechainicio" : "2018-08-21",
+      "fechanac" : "1887-12-31",
+      "nombre" : "Keny Félix",
+      "uid" : "ArfluCrif9Qc4M7Lph62hnj99Wy1"
+    },
+    "count" : 2
+  },
+  "ROLES" : {
+    "4H2FBlocxahxij1fPb4mSCgR0ct2" : {
+      "rol" : "prof"
+    },
+    "ArfluCrif9Qc4M7Lph62hnj99Wy1" : {
+      "rol" : "prof"
+    },
+    "IbDrdgQe10R7d7Riqey45uIIdlN2" : {
+      "rol" : "admin"
+    },
+    "P2neHUudqQYFOK76FjxaL70nDT32" : {
+      "rol" : "est"
+    },
+    "S5v8jzCmAKUNCaSh15RIk0KN8x63" : {
+      "rol" : "est"
+    },
+    "Xycp6MfwxAVYGC46L8s8kJ8gcPk1" : {
+      "rol" : "est"
+    },
+    "count" : 6
+  },
+  "admin" : "bboytcry@gmail.com",
+  "periodoactual" : 1,
+  "zxccxz1-@" : "bboytcry@hotmail.com"
+}
