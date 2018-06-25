@@ -43,25 +43,15 @@
             <div class="main row">
                 <div class="col-sm-12">
                     <center><h3 class="text-yellow">Listado General de Materias</h3></center> <br />
+                    
                     <div class="form-group">
                         <div class="col-xs-9 col-sm-10">
                             <label for="exampleSelect1">Materias</label>
-                            <select class="form-control" id="materias">
+                            <select class="form-control" id="materias" tabindex="1">
                                 <option></option>
                             </select>
                         </div>
                     </div>
-
-                    <!--<div class="form-inline">
-        <div class="col-10">
-            <label for="inlineFormCustomSelect">Proceso</label>
-            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="idprocesoselect">
-                <option value="agregar">Agregar Materia</option>
-                <option value="modificar">Modificar Materia</option>
-                <option value="eliminar">Eliminar Materia</option>
-            </select>
-        </div>
-    </div>-->
 
                     <div class="container">
                         <form>
@@ -70,7 +60,7 @@
                                     <label for="inlineFormCustomSelect">Proceso</label>
                                 </div>
                                 <div class="col-xs-9 col-sm-8 col-md-6 col-lg-4">
-                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="idprocesoselect">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="idprocesoselect" tabindex="2">
                                         <option value="agregar">Agregar Materia</option>
                                         <option value="modificar">Modificar Materia</option>
                                         <option value="eliminar">Eliminar Materia</option>
@@ -80,23 +70,20 @@
                         </form>
                     </div>
 
-                    <center>---------------------</center>
                     <br />
 
                     <div class="form-group">
                         <label for="example-text-input" class="col-12 col-form-label" id="nombreproceso">Nombre de la nueva materia</label>
                         <div class="col-xs-9 col-sm-10">
-                            <input class="form-control" type="text" value="" id="newnamemateria">
+                            <input class="form-control" type="text" value="" id="newnamemateria" placeholder="Nombre" tabindex="3">
                         </div>
-                    </div>
-                    <div class="form-group">
                         <label for="example-text-input" class="col-12 col-form-label" id="nombreproceso">Abreviación</label>
                         <div class="col-xs-9 col-sm-10">
-                            <input class="form-control" type="text" value="" id="abreviatura" placeholder="Ejemplo: NAT" maxlength="3">
+                            <input class="form-control" type="text" value="" id="abreviatura" placeholder="Ejemplo: NAT" maxlength="3" tabindex="4">
                         </div>
                     </div>
                     <div class="col-10">
-                        <a onclick="Procesar();" class="btn btn-success active" id="btnproceso">Agregar</a>
+                        <a onclick="Procesar();" class="btn btn-success active" id="btnproceso" tabindex="5">Agregar</a>
                     </div>
                 </div>
             </div>
@@ -133,14 +120,17 @@
             //documents
             var materiasselect = document.getElementById('materias');
             var idprocesoselect = document.getElementById('idprocesoselect');
+            var nombreproceso = document.getElementById('nombreproceso');
             var nuevonombre = document.getElementById('newnamemateria');
             var abreviatura = document.getElementById('abreviatura');
             var btnproceso = document.getElementById('btnproceso');
+            var CurrentValue = 1;
 
             //Variables
             var Counter = 0;
 
             rootRef.child('MATERIAS').on('value', function (snapshot) {
+                
                 //Vaciar DropDown
                 materiasselect.options.length = 0;
 
@@ -156,32 +146,54 @@
                     el.textContent = opt;
                     el.value = optvalue;
                     materiasselect.appendChild(el);
-                }
+                }                
 
             });
 
             materiasselect.addEventListener('change', function (e) {
-                console.log(materiasselect.value)
+                Dinamismo();                
             });
 
             idprocesoselect.addEventListener('change', function (e) {
+                Dinamismo();
+            });
+
+            function Dinamismo() {
                 if (idprocesoselect.value == 'agregar') {
                     btnproceso.innerHTML = 'Agregar';
                     btnproceso.className = 'btn btn-success active';
+                    nombreproceso.innerHTML = 'Nombre de la nueva materia';
                     nuevonombre.disabled = false;
                     abreviatura.disabled = false;
-                } else if (idprocesoselect.value == 'modificar'){
+                } else if (idprocesoselect.value == 'modificar') {
                     btnproceso.innerHTML = 'Modificar';
                     btnproceso.className = 'btn btn-primary active';
                     nuevonombre.disabled = false;
                     abreviatura.disabled = false;
+                    nombreproceso.innerHTML = 'Nuevo nombre de la materia';
+
+                    CurrentValue = materiasselect.value;
+                    //Cargar la materia seleccionada
+                    rootRef.child('MATERIAS').child(CurrentValue).on('value', function (snapshot) {
+                        nuevonombre.value = snapshot.child('nombre').val();
+                        abreviatura.value = snapshot.child('codigo').val();
+                    });
+
                 } else if (idprocesoselect.value == 'eliminar') {
                     btnproceso.innerHTML = 'Eliminar';
                     btnproceso.className = 'btn btn-danger active';
                     nuevonombre.disabled = true;
                     abreviatura.disabled = true;
+                    nombreproceso.innerHTML = 'Materia a eliminar';
+
+                    CurrentValue = materiasselect.value;
+                    //Cargar la materia seleccionada
+                    rootRef.child('MATERIAS').child(CurrentValue).on('value', function (snapshot) {
+                        nuevonombre.value = snapshot.child('nombre').val();
+                        abreviatura.value = snapshot.child('codigo').val();
+                    });
                 }
-            });
+            }
 
             rootRef.child('MATERIAS').child('count').on('value', function (snapshot) {
                 Counter = snapshot.val();
@@ -204,9 +216,14 @@
                     abreviatura.value = '';
 
                 } else if (idprocesoselect.value == 'modificar') {
+                    //Modificar materia seleccionada
+                    rootRef.child('MATERIAS/' + (CurrentValue.toString())).update({
+                        nombre: nuevonombre.value,
+                        codigo: abreviatura.value
+                    });
 
                 } else if (idprocesoselect.value == 'eliminar') {
-
+                    var eliminar = confirm('Seguro que desea eliminar la materia de: '+nuevonombre.value);
                 }
             }
 
