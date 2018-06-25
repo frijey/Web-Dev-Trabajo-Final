@@ -128,6 +128,28 @@
             var btnproceso = document.getElementById('btnproceso');
             var CurrentValue = 1;
 
+            // Ejecutar la funcion del botón si se preciona enter
+            newnamemateria.addEventListener("keyup", function (event) {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Number 13 is the "Enter" key on the keyboard
+                if (event.keyCode === 13) {
+                    // Trigger the button element with a click
+                    btnproceso.click();
+                }
+            });
+
+            // Ejecutar la funcion del botón si se preciona enter
+            abreviatura.addEventListener("keyup", function (event) {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Number 13 is the "Enter" key on the keyboard
+                if (event.keyCode === 13) {
+                    // Trigger the button element with a click
+                    btnproceso.click();
+                }
+            });
+
             //Variables
             var Counter = 0;
 
@@ -142,7 +164,6 @@
 
                 for (var i = 0; i < (Keys.length - 1); i++) {
                     var opt = snapshot.child(Keys[i]).child('nombre').val();
-                    console.log(opt);
                     var optvalue = Keys[i];
                     var el = document.createElement("option");
                     el.textContent = opt;
@@ -202,83 +223,54 @@
             });
 
             function Procesar() {
-                if (idprocesoselect.value == 'agregar') {
-                    //Agregar la nueva materia
-                    rootRef.child('MATERIAS').child((Counter + 1)).set({
-                        nombre: nuevonombre.value,
-                        codigo: (abreviatura.value.toUpperCase())
-                    });
 
-                    //Aumentar counter en 1
-                    rootRef.child('MATERIAS/').update({
-                        count: (Counter+1)
-                    });
+                if (nuevonombre.value != '' && abreviatura.value != '') {
 
-                    nuevonombre.value = '';
-                    abreviatura.value = '';
+                    if (idprocesoselect.value == 'agregar') {
+                        //Agregar la nueva materia
+                        rootRef.child('MATERIAS').child((Counter + 1)).set({
+                            nombre: nuevonombre.value,
+                            codigo: (abreviatura.value.toUpperCase())
+                        });
 
-                } else if (idprocesoselect.value == 'modificar') {
-                    //Modificar materia seleccionada
-                    rootRef.child('MATERIAS/' + (CurrentValue.toString())).update({
-                        nombre: nuevonombre.value,
-                        codigo: abreviatura.value
-                    });
+                        //Aumentar counter en 1
+                        rootRef.child('MATERIAS/').update({
+                            count: (Counter + 1)
+                        });
 
-                } else if (idprocesoselect.value == 'eliminar') {
-                    var eliminar = confirm('Seguro que desea eliminar la materia de: ' + nuevonombre.value);
-                    if (eliminar) {
+                        nuevonombre.value = '';
+                        abreviatura.value = '';
 
-                    } else {
+                        //Poner el cursor en el textbox de nombre de materia
+                        nuevonombre.focus();
 
+                    } else if (idprocesoselect.value == 'modificar') {
+                        //Modificar materia seleccionada
+                        rootRef.child('MATERIAS/' + (CurrentValue.toString())).update({
+                            nombre: nuevonombre.value,
+                            codigo: abreviatura.value
+                        });
+
+                    } else if (idprocesoselect.value == 'eliminar') {
+                        var eliminar = confirm('Seguro que desea eliminar la materia de: ' + nuevonombre.value);
+                        if (eliminar) {
+                            rootRef.child('MATERIAS').child(CurrentValue).remove();
+                            //Aumentar counter en 1
+                            rootRef.child('MATERIAS/').update({
+                                count: (Counter - 1)
+                            });
+                        } else {
+                            //No hacer nada...
+                        }
                     }
+                } else {
+                    if (idprocesoselect.value == 'eliminar') {
+                        alert('Por favor seleccione la materia que desea eliminar...');
+                    } else {
+                        alert('Debe llenar ambos campos para poder proceder...');
+                    }                    
                 }
             }
-
-            //firebase.database().ref().child('ESTUDIANTES').on('value', function (snapshot) {
-            //    var Table = document.getElementById("ex-table");
-            //    Table.innerHTML = "";
-            //    if (snapshot.exists()) {
-            //        var content = '';
-            //        snapshot.forEach(function (data) {
-            //            var val = data.val();
-            //            content += '<tr>';
-            //            content += '<td>' + val.nombre + '</td>';
-            //            content += '<td>' + val.apellido + '</td>';
-            //            content += '<td>' + val.curso + '</td>';
-            //            content += '<td>' + val.fechanac + '</td>';
-            //            content += '<td>' + val.email + '</td>';
-            //            content += '</tr>';
-            //        });
-            //        $('#ex-table').append(content);
-            //    }
-            //});
-
-
-
-
-            //function createHeaders(data) {
-            //    var html = '';
-            //    html += '<tr>';
-            //    $.each(data, function (key, value) {
-            //        html += '<th>' + key + '</th>';
-            //    });
-            //    html += '<th class="text-right">';
-            //    html += '</tr>';
-
-            //    $("#tableHeaders").append(html);
-            //}
-
-            //function showItems(data, key) {
-            //    var html = '';
-            //    html += '<tr>';
-            //    $.each(data, function (key, value) {
-            //        html += '<td>' + value + '</td>';
-            //    });
-            //    html += '<td class="text-right"><a href="/" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</a> <a href="/" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</a></td>';
-            //    html += '</tr>';
-
-            //    $('#results').append(html);
-            //}
 
             function CerrarSesion() {
                 firebase.auth().signOut();
