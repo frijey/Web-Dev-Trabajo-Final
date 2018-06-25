@@ -1,0 +1,166 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Administrador</title>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+            <a class="navbar-brand" href="#">Centro Educativo Tesla</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="../nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" data-toggle="dropdown">Procesos</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item text-primary" href="registrarestudiante.html">Registrar Estudiantes</a>
+							<a class="dropdown-item text-primary" href="">Configuración</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="CerrarSesion();" href="../../../index.html">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="jumbotron">
+
+            <div class="main row">
+
+                <div class="col-sm-12">
+                    <center><h3 class="text-yellow">Configuración de la Sección de Noticias</h3></center> <br />
+                    <div class="panel-body">
+                        
+						<div class="row">                            						
+							<input type="text" class="form-control" id="bienvenida" ="emailHelp" placeholder="Título de la bienvenida...">
+							<textarea class="form-control" rows="5" id="bienvenidaparrafo" placeholder="Contenido de la bienvenida..."	></textarea>
+						</div>
+						<br/>
+						<br/>
+						<div class="row">                            						
+							<input type="text" class="form-control" id="noticia1" ="emailHelp" placeholder="Título Noticia 1...">
+							<textarea class="form-control" rows="5" id="noticia1parrafo" placeholder="Contenido Noticia 1..."	></textarea>
+						</div>
+						<br/>
+						<br/>
+						<div class="row">                            						
+							<input type="text" class="form-control" id="noticia2" ="emailHelp" placeholder="Título Noticia 2...">
+							<textarea class="form-control" rows="5" id="noticia2parrafo" placeholder="Contenido Noticia 2..."	></textarea>
+						</div>
+						<br/>
+						<br/>
+						<div class="row">                            						
+							<input type="text" class="form-control" id="noticia3" ="emailHelp" placeholder="Título Noticia 3...">
+							<textarea class="form-control" rows="5" id="noticia3parrafo" placeholder="Contenido Noticia 3..."	></textarea>
+						</div>
+						<br/>
+						
+						<a class="btn btn-success btn-lg" onclick="Guardar();" role="button">Guardar</a>
+						
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container-fluid bg-primary">
+                <h3 class="text-white lead">Galvin Santos & Jeffry Marte B.</h3>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Conexión con la base de datos -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD0wEMTWqhJb9Q_fawATAEakx3gQahjeAw",
+            authDomain: "controldecalificaciones.firebaseapp.com",
+            databaseURL: "https://controldecalificaciones.firebaseio.com",
+            projectId: "controldecalificaciones",
+            storageBucket: "controldecalificaciones.appspot.com",
+            messagingSenderId: "24849732387"
+        };
+        firebase.initializeApp(config);
+
+                var bienvenida = document.getElementById('bienvenida');
+        var bienvenidaparrafo = document.getElementById('bienvenidaparrafo');
+        var noticia1 = document.getElementById('noticia1');
+        var noticia1parrafo = document.getElementById('noticia1parrafo');
+        var noticia2 = document.getElementById('noticia2');
+        var noticia2parrafo = document.getElementById('noticia2parrafo');
+        var noticia3 = document.getElementById('noticia3');
+        var noticia3parrafo = document.getElementById('noticia3parrafo');
+
+        firebase.database().ref().child('CONFIGURACION').on('value', function (snapshot) {
+            bienvenida.value = snapshot.child("bienvenida").child("titulo").val();
+            bienvenidaparrafo.value = snapshot.child("bienvenida").child("contenido").val();
+            noticia1.value = snapshot.child("noticia1").child("titulo").val();
+            noticia1parrafo.value = snapshot.child("noticia1").child("contenido").val();
+            noticia2.value = snapshot.child("noticia2").child("titulo").val();
+            noticia2parrafo.value = snapshot.child("noticia2").child("contenido").val();
+            noticia3.value = snapshot.child("noticia3").child("titulo").val();
+            noticia3parrafo.value = snapshot.child("noticia3").child("contenido").val();
+        });
+		
+		function Guardar(){
+			firebase.database().ref('CONFIGURACION/').update({
+            bienvenida: {
+				titulo: bienvenida.value,
+				contenido: bienvenidaparrafo.value
+			},
+			noticia1: {
+				titulo: noticia1.value,
+				contenido: noticia1parrafo.value
+			},
+			noticia2: {
+				titulo: noticia2.value,
+				contenido: noticia2parrafo.value
+			},
+			noticia3: {
+				titulo: noticia3.value,
+				contenido: noticia3parrafo.value
+			},
+            });
+		}
+
+        function CerrarSesion() {
+            firebase.auth().signOut();
+			window.location = '../../index.html';
+        }
+
+    </script>
+
+</body>
+</html>
