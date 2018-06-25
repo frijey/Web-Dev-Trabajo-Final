@@ -328,11 +328,11 @@
                 cursoest.appendChild(el);
             }
 
-            //Leer el conteo de estudiantes en dicho curso
-            rootRef.child('PERIODOESCOLAR').child(ActualPeriodo).child('CURSOS').child(cursoest.value).child('ESTUDIANTES').once('value', function (snapshot) {
-                ContadorEstudiantesCurso = snapshot.child('count').val();
-                console.log(ContadorEstudiantesCurso);
-            });
+            ////Leer el conteo de estudiantes en dicho curso
+            //rootRef.child('PERIODOESCOLAR').child(ActualPeriodo).child('CURSOS').child(cursoest.value).child('ESTUDIANTES').once('value', function (snapshot) {
+            //    ContadorEstudiantesCurso = snapshot.child('count').val();
+            //    console.log(ContadorEstudiantesCurso);
+            //});
 
         });
 
@@ -350,9 +350,8 @@
                     //numeroest = numeroest.child('numero').val();
 
                     //Aumentar uno al número
-                    firebase.database().ref('CURSOS/' + cursoest.value + '/').set({
+                    firebase.database().ref('CURSOS/' + cursoest.value + '/').update({
                         numero: (numeroest + 1),
-                        estado: 'ACTIVO',
                     });
 
                 } else {

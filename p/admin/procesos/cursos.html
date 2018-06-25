@@ -550,6 +550,10 @@
                         mantestadocurso.value = snapshot.child('estado').val();
                     });
 
+                    rootRef.child('/PERIODOESCOLAR/' + ActualPeriodo + '/CURSOS/' + mantCurretnValue+'/ESTUDIANTES').on('value', function (snapshot) {
+                        console.log(snapshot.val());
+                    });
+
                 }
             }
 
