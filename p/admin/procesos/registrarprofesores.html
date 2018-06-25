@@ -26,7 +26,10 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" data-toggle="dropdown">Procesos</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item text-primary" href="">Registrar Estudiantes</a>
+                            <a class="dropdown-item text-primary" href="registrarestudiante.html">Registro de Estudiantes</a>
+                            <a class="dropdown-item text-primary" href="registrarprofesores.html">Registro de Profesores</a>
+                            <a class="dropdown-item text-primary" href="lista de estudiantes.html">Listas</a>
+                            <a class="dropdown-item text-primary" href="materias.html">Materias</a>
                             <a class="dropdown-item text-primary" href="noticias.html">Configuración</a>
                         </div>
                     </li>
@@ -42,7 +45,7 @@
         <div class="jumbotron">
             <div class="main row">
                 <div class="col-sm-12">
-                    <center><h3 class="text-yellow">Registrar Estudiante</h3></center> <br />
+                    <center><h3 class="text-yellow">Registrar Profesor</h3></center> <br />
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3 col-lg-3 " align="center">
@@ -60,19 +63,19 @@
                                 <div class="form-group">
                                     <label for="example-text-input" class="col-12 col-form-label">Nombre</label>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" value="" id="nombreest" placeholder="nombre">
+                                        <input class="form-control" type="text" value="" id="nombreprof" placeholder="nombre">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="example-text-input" class="col-12 col-form-label">Apellido</label>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" value="" id="apellidoest" placeholder="apellido">
+                                        <input class="form-control" type="text" value="" id="apellidoprof" placeholder="apellido">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-10">
                                         <label for="exampleSelect1">Género</label>
-                                        <select class="form-control" id="generoest">
+                                        <select class="form-control" id="generoprof">
                                             <option>Masculino</option>
                                             <option>Femenino</option>
                                         </select>
@@ -85,29 +88,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="example-date-input" class="col-12 col-form-label">Fecha de Inicio Laboral</label>
                                     <div class="col-10">
-                                        <label for="exampleSelect1">Curso</label>
-                                        <select class="form-control" id="cursoest">
-                                            <option></option>
-                                        </select>
+                                        <input class="form-control" type="date" value="" id="fechainicio">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="example-text-input" class="col-12 col-form-label">Nombre del Papá</label>
+                                    <label for="example-text-input" class="col-12 col-form-label">Cédula o ID</label>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" value="" id="nombrepadre" placeholder="nomb. padre">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="example-text-input" class="col-12 col-form-label">Nombre de la Mamá</label>
-                                    <div class="col-10">
-                                        <input class="form-control" type="text" value="" id="nombremadre" placeholder="nomb. madre">
+                                        <input class="form-control" type="text" value="" id="cedulaid" placeholder="Identificación">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="example-text-input" class="col-12 col-form-label">Teléfono</label>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" value="809-000-0000" id="telest" placeholder="teléfono">
+                                        <input class="form-control" type="text" value="809-000-0000" id="telprof" placeholder="teléfono">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -119,7 +114,7 @@
                                 <div class="form-group">
                                     <label for="example-text-input" class="col-12 col-form-label">Contraseña</label>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" value="123456" id="newpass" placeholder="contraseña">
+                                        <input class="form-control" type="text" value="1234567" id="newpass" placeholder="contraseña">
                                     </div>
                                 </div>
                                 <a onclick="this.className = 'btn btn-success active disabled'; Registrar();" class="btn btn-success active" id="registrarbtn">Registrar</a>
@@ -159,40 +154,36 @@
             messagingSenderId: "24849732387"
         };
         firebase.initializeApp(config);
-        const rootRef = firebase.database().ref();
 
+        const rootRef = firebase.database().ref();
+        const auth = firebase.auth();
         var secondaryApp = firebase.initializeApp(config, "Secondary");
 
         var btnregistrar = document.getElementById('registrarbtn');
         var actualphoto = document.getElementById('imgestudiante');
         var file = document.getElementById('selectedFile');
         var rutafoto = document.getElementById('rutafoto');
-        var nombrest = document.getElementById('nombreest');
-        var apellidoest = document.getElementById('apellidoest');
-        var generoest = document.getElementById('generoest');
+        var nombreprof = document.getElementById('nombreprof');
+        var apellidoprof = document.getElementById('apellidoprof');
+        var generoprof = document.getElementById('generoprof');
         var fechanac = document.getElementById('fechanac');
-        var cursoest = document.getElementById('cursoest');
-        var nombrepadre = document.getElementById('nombrepadre');
-        var nombremadre = document.getElementById('nombremadre');
-        var telest = document.getElementById('telest');
+        var fechainicio = document.getElementById('fechainicio');
+        var cedulaid = document.getElementById('cedulaid');
+        var telprof = document.getElementById('telprof');
 
         var newemail = document.getElementById('newemail');
         var newpass = document.getElementById('newpass');
 
-        var numeroest = '77';
-        const auth = firebase.auth();
         var MyKey = '';
         var fotourl = actualphoto.src;
         var NewUserUid = 'TESTuid-asdasdasd';
         var ActualPeriodo = '';
-        var dbRef = firebase.database().ref().child('ESTUDIANTES');
-        var foundData = false;
-        var CountEstudiantes = 1;
+        var CountProfesores = 1;
         var RolesCount = 1;
         var fileFrom;
-        var ContadorEstudiantesCurso; //Contar cuantos estudiantes activos hay registrados en un curso...
         var test;
 
+        //Tomar archivo de la foto...
         file.addEventListener('change', function (e) {
 
             //Get file
@@ -209,22 +200,22 @@
 
         });
 
-        cursoest.addEventListener('change', function (e) {
+        //Conteo de profesores
+        rootRef.child('PROFESORES').child('count').on('value', function (snapshot) {
+            CountProfesores = snapshot.val();
+            console.log('Profesores count: ' + CountProfesores);
+        });
 
-            firebase.database().ref('CURSOS/' + cursoest.value + '/numero').once('value').then(function (snapshot) {
-                if (snapshot != null) {
-                    //Asignar el número buscado
-                    numeroest = snapshot.val();
-                } else {
-                }
-            });
+        //Conteo de roles
+        rootRef.child('ROLES').child('count').on('value', function (snapshot) {
+            RolesCount = snapshot.val();
+            console.log('Roles Count: ' + RolesCount);
+        });
 
-            //Leer el conteo de estudiantes en dicho curso
-            rootRef.child('PERIODOESCOLAR').child(ActualPeriodo).child('CURSOS').child(cursoest.value).child('ESTUDIANTES').on('value', function (snapshot) {
-                ContadorEstudiantesCurso = snapshot.child('count').val();
-                console.log(ContadorEstudiantesCurso);
-            });
-
+        //Conseguir el periodo actual
+        rootRef.child('periodoactual').on('value', function (snapshot) {
+            ActualPeriodo = snapshot.val();
+            console.log(ActualPeriodo);
         });
 
         function Registrar() {
@@ -232,18 +223,14 @@
             newemail.value = newemail.value.toLowerCase();
 
             //validar que ningún campo esté vacío...
-            if (nombrest.value == "" || apellidoest.value == "" || generoest.value == "" || fechanac.value == "" || cursoest.value == "" ||
-                nombrepadre.value == "" || nombremadre.value == "" || telest.value == "" || newemail.value == "" || newpass.value == "" || rutafoto.value == "") {
+            if (nombreprof.value == "" || apellidoprof.value == "" || generoprof.value == "" || fechanac.value == "" || fechainicio.value == "" ||
+                cedulaid.value == "" || telprof.value == "" || newemail.value == "" || newpass.value == "" || rutafoto.value == "") {
                 alert('Rellene todos los campos y seleccione la foto del estudiante');
                 btnregistrar.className = 'btn btn-success active';
                 return;
             } else {
                 //Continue
             }
-
-
-            //const promise = secondaryApp.auth().createUserWithEmailAndPassword(newemail.value, newpass.value);
-            //promise.catch(e => alert(e.message));
 
             secondaryApp.auth().createUserWithEmailAndPassword(newemail.value, newpass.value)
                 .then(function () {
@@ -254,139 +241,48 @@
                     alert(error.message);
                     btnregistrar.className = 'btn btn-success active';
                 });
-
-            //NewUserUid = firebaseUser.user.uid;
-            //console.log(NewUserUid)
-            //secondaryApp.auth().signOut();
-
         }
-
 
         secondaryApp.auth().onAuthStateChanged((user) => {
             if (user) {
-
                 NewUserUid = user.uid;
-                console.log(NewUserUid)
-
-                //Agregar datos de acceso a la DB
-                rootRef.child('PASSWORDS/' + NewUserUid).set({
-                    nombre: nombrest.value + ' ' + apellidoest.value,
-                    pass: newpass.value,
-                    uid: NewUserUid
-                });
-
-                var sumador;
-                //Sumar uno a la cantidad de count
-                rootRef.child('PASSWORDS').child('count').once('value', function (snapshot){
-                    sumador = snapshot.val()
-                    console.log('count de PASSWORDS: '+sumador)
-
-                    rootRef.child('PASSWORDS/').update({
-                        count: (sumador + 1)
-                    });
-                });
-
-                //Leer el conteo de estudiantes en dicho curso
-                rootRef.child('PERIODOESCOLAR').child(ActualPeriodo).child('CURSOS').child(cursoest.value).child('ESTUDIANTES').on('value', function (snapshot) {
-                    ContadorEstudiantesCurso = snapshot.child('count').val();
-                    console.log(ContadorEstudiantesCurso);
-                });
-
-                conseguirNumero();
+                console.log('Nuevo id de profesor: ' + NewUserUid)
                 ProcesoDeRegistro();
                 secondaryApp.auth().signOut();
             } else {
             }
         });
 
-
-
-        rootRef.child('ESTUDIANTES').child('count').on('value', function (snapshot) {
-            CountEstudiantes = snapshot.val();
-            console.log(CountEstudiantes);
-        });
-
-        rootRef.child('ROLES').child('count').on('value', function (snapshot) {
-            RolesCount = snapshot.val();
-            console.log(CountEstudiantes);
-        });
-
-        rootRef.child('CURSOS').on('value', function (snapshot) {
-            //Vaciar DropDown
-            cursoest.options.length = 0;
-
-            //Llenar el Dropdown
-            var scores = snapshot.val();
-            var Keys = Object.keys(scores);
-
-            console.log(Keys);
-            for (var i = 0; i < (Keys.length - 1); i++) {
-                var opt = Keys[i];
-                var el = document.createElement("option");
-                el.textContent = opt;
-                el.value = opt;
-                cursoest.appendChild(el);
-            }
-
-        });
-
-        rootRef.child('periodoactual').on('value', function (snapshot) {
-            ActualPeriodo = snapshot.val();
-            console.log(ActualPeriodo);
-        });
-
-        function conseguirNumero() {
-            firebase.database().ref('CURSOS/' + cursoest.value + '/numero').once('value').then(function (snapshot) {
-                if (snapshot != null) {
-                    //Asignar el número buscado
-                    numeroest = snapshot.val();
-                    console.log(numeroest);
-                    //numeroest = numeroest.child('numero').val();
-
-                    //Aumentar uno al número
-                    firebase.database().ref('CURSOS/' + cursoest.value + '/').set({
-                        numero: (numeroest + 1),
-                        estado: 'ACTIVO',
-                    });
-
-                } else {
-                }
-            });
-        }
-
         function ProcesoDeRegistro() {
 
-            //Guardar datos en ESTUDIANTES
-            firebase.database().ref('ESTUDIANTES/' + NewUserUid).set({
-                nombre: nombrest.value,
-                apellido: apellidoest.value,
-                genero: generoest.value,
+            //Guardar datos en PROFESORES
+            firebase.database().ref('PROFESORES/' + NewUserUid).set({
+                nombre: nombreprof.value,
+                apellido: apellidoprof.value,
+                genero: generoprof.value,
                 fechanac: fechanac.value,
-                curso: cursoest.value,
-                PERIODO: {
-                    PERIODOSCURSADOS: {
-                        [ActualPeriodo]: {
-                            curso: cursoest.value,
-                            numero: numeroest,
-                        },
+                fechainicio: fechainicio.value,
+                PERIODOS: {
+                    [ActualPeriodo]: {
+                        MATERIAS: {
+                            counter: 0,
+                        }
                     },
                 },
-                nombrepadre: nombrepadre.value,
-                nombremadre: nombremadre.value,
-                telefono: telest.value,
+                cedula: cedulaid.value,
+                telefono: telprof.value,
                 email: newemail.value,
                 uid: NewUserUid,
                 foto: 'fotos/' + NewUserUid + '.jpg'
-
             });
 
             //Aumentar uno al número
-            firebase.database().ref('ESTUDIANTES/').update({
-                count: (CountEstudiantes + 1),
+            firebase.database().ref('PROFESORES/').update({
+                count: (CountProfesores + 1),
             });
 
             firebase.database().ref('ROLES/' + NewUserUid).set({
-                rol: 'est'
+                rol: 'prof'
             });
 
             //Aumentar uno al número
@@ -404,7 +300,7 @@
             //Anotar Estudiante en el curso
             test = {
                 [numeroest]: {
-                    nombre: (nombrest.value + ' ' + apellidoest.value),
+                    nombre: (nombreprof.value + ' ' + apellidoprof.value),
                     numero: numeroest,
                     uid: NewUserUid
                 },
@@ -412,9 +308,8 @@
             console.log(test);
 
             firebase.database().ref('PERIODOESCOLAR/' + ActualPeriodo + '/CURSOS/' + cursoest.value + '/ESTUDIANTES/').update({
-                //[NewUserUid]: nombrest.value+' '+apellidoest.value, //Descontinuado
                 [numeroest]: {
-                    nombre: (nombrest.value + ' ' + apellidoest.value),
+                    nombre: (nombreprof.value + ' ' + apellidoprof.value),
                     numero: numeroest,
                     uid: NewUserUid
                 },
