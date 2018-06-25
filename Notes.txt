@@ -1,0 +1,11 @@
+Cursos
+
+Nombre del Curso
+Sec-ESTUDIANTES (count.0) [Lista de Estudiantes]
+	-Agregar Estudiante
+
+Sec-MATERIAS (count.0) [Lista de Materias]
+	-Agregar Materias[id curso, idmateria, idprofe, 
+	nombremateriaalmomento[Estado principal :Cursado]
+
+estado.VIGENTE [Cambiar Estado VIGENTE-INACTIVO]
