@@ -4,22 +4,17 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Administrador</title>
 </head>
 <body>
-
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-
             <a class="navbar-brand" href="#">Centro Educativo Tesla</a>
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -32,7 +27,7 @@
                         <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" data-toggle="dropdown">Procesos</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item text-primary" href="">Registrar Estudiantes</a>
-							<a class="dropdown-item text-primary" href="noticias.html">Configuración</a>
+                            <a class="dropdown-item text-primary" href="noticias.html">Configuración</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -44,34 +39,70 @@
                 </ul>
             </div>
         </nav>
-
         <div class="jumbotron">
-
             <div class="main row">
-
                 <div class="col-sm-12">
-                    <center><h3 class="text-yellow">Lista de Estudiantes</h3></center> <br />
-                    <div class="panel-body">
-                        <div class="row">
-
-                            <div class=" col-md-9 col-lg-9 ">
-                                
-								<table class="table" style="width:100%" id="ex-table">
-			<tr id="tr">
-			<th>Nombre</th>
-			<th>Apellido</th> 
-			<th>Curso</th>
-			<th>Fecha de Nac.</th>
-			<th>Email</th>
-			</table> 
-
-                            </div>
-
+                    <center><h3 class="text-yellow">Listado General de Materias</h3></center> <br />
+                    <div class="form-group">
+                        <div class="col-xs-9 col-sm-10">
+                            <label for="exampleSelect1">Materias</label>
+                            <select class="form-control" id="materias">
+                                <option></option>
+                            </select>
                         </div>
+                    </div>
+
+                    <!--<div class="form-inline">
+        <div class="col-10">
+            <label for="inlineFormCustomSelect">Proceso</label>
+            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="idprocesoselect">
+                <option value="agregar">Agregar Materia</option>
+                <option value="modificar">Modificar Materia</option>
+                <option value="eliminar">Eliminar Materia</option>
+            </select>
+        </div>
+    </div>-->
+
+                    <div class="container">
+                        <form>
+                            <div class="form-group row">
+                                <div class="col-xs-10 col-sm-2 col-md-2 col-lg-1">
+                                    <label for="inlineFormCustomSelect">Proceso</label>
+                                </div>
+                                <div class="col-xs-9 col-sm-8 col-md-6 col-lg-4">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="idprocesoselect">
+                                        <option value="agregar">Agregar Materia</option>
+                                        <option value="modificar">Modificar Materia</option>
+                                        <option value="eliminar">Eliminar Materia</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <center>---------------------</center>
+                    <br />
+
+                    <div class="form-group">
+                        <label for="example-text-input" class="col-12 col-form-label" id="nombreproceso">Nombre de la nueva materia</label>
+                        <div class="col-xs-9 col-sm-10">
+                            <input class="form-control" type="text" value="" id="newnamemateria">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="example-text-input" class="col-12 col-form-label" id="nombreproceso">Abreviación</label>
+                        <div class="col-xs-9 col-sm-10">
+                            <input class="form-control" type="text" value="" id="abreviatura" placeholder="Ejemplo: NAT" maxlength="3">
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <a onclick="Procesar();" class="btn btn-success active" id="btnproceso">Agregar</a>
                     </div>
                 </div>
             </div>
         </div>
+
+
 
         <footer>
             <div class="container-fluid bg-primary">
@@ -79,83 +110,157 @@
             </div>
         </footer>
 
-    </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Conexión con la base de datos -->
+        <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyD0wEMTWqhJb9Q_fawATAEakx3gQahjeAw",
+                authDomain: "controldecalificaciones.firebaseapp.com",
+                databaseURL: "https://controldecalificaciones.firebaseio.com",
+                projectId: "controldecalificaciones",
+                storageBucket: "controldecalificaciones.appspot.com",
+                messagingSenderId: "24849732387"
+            };
+            firebase.initializeApp(config);
+            const rootRef = firebase.database().ref();
 
+            //documents
+            var materiasselect = document.getElementById('materias');
+            var idprocesoselect = document.getElementById('idprocesoselect');
+            var nuevonombre = document.getElementById('newnamemateria');
+            var abreviatura = document.getElementById('abreviatura');
+            var btnproceso = document.getElementById('btnproceso');
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            //Variables
+            var Counter = 0;
 
-    <!-- Conexión con la base de datos -->
+            rootRef.child('MATERIAS').on('value', function (snapshot) {
+                //Vaciar DropDown
+                materiasselect.options.length = 0;
 
-    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyD0wEMTWqhJb9Q_fawATAEakx3gQahjeAw",
-            authDomain: "controldecalificaciones.firebaseapp.com",
-            databaseURL: "https://controldecalificaciones.firebaseio.com",
-            projectId: "controldecalificaciones",
-            storageBucket: "controldecalificaciones.appspot.com",
-            messagingSenderId: "24849732387"
-        };
-        firebase.initializeApp(config);
+                //Llenar el Dropdown
+                var scores = snapshot.val();
+                var Keys = Object.keys(scores);
 
-		
-		firebase.database().ref().child('ESTUDIANTES').on('value', function (snapshot) {
-		var Table = document.getElementById("ex-table");
-		Table.innerHTML = "";
-            if(snapshot.exists()){
-            var content = '';
-            snapshot.forEach(function(data){
-                var val = data.val();
-                content +='<tr>';
-                content += '<td>' + val.nombre + '</td>';
-                content += '<td>' + val.apellido + '</td>';
-                content += '<td>' + val.curso + '</td>';
-                content += '<td>' + val.fechanac + '</td>';
-				content += '<td>' + val.email + '</td>';
-                content += '</tr>';
+                for (var i = 0; i < (Keys.length - 1); i++) {
+                    var opt = snapshot.child(Keys[i]).child('nombre').val();
+                    console.log(opt);
+                    var optvalue = Keys[i];
+                    var el = document.createElement("option");
+                    el.textContent = opt;
+                    el.value = optvalue;
+                    materiasselect.appendChild(el);
+                }
+
             });
-            $('#ex-table').append(content);
-        }
-    });
 
-		
+            materiasselect.addEventListener('change', function (e) {
+                console.log(materiasselect.value)
+            });
 
-		
-    function createHeaders(data) {
-    var html = '';
-    html += '<tr>';
-    $.each(data, function(key, value) {
-        html += '<th>' + key + '</th>';
-    });
-    html += '<th class="text-right">';
-    html += '</tr>';
+            idprocesoselect.addEventListener('change', function (e) {
+                if (idprocesoselect.value == 'agregar') {
+                    btnproceso.innerHTML = 'Agregar';
+                    btnproceso.className = 'btn btn-success active';
+                    nuevonombre.disabled = false;
+                    abreviatura.disabled = false;
+                } else if (idprocesoselect.value == 'modificar'){
+                    btnproceso.innerHTML = 'Modificar';
+                    btnproceso.className = 'btn btn-primary active';
+                    nuevonombre.disabled = false;
+                    abreviatura.disabled = false;
+                } else if (idprocesoselect.value == 'eliminar') {
+                    btnproceso.innerHTML = 'Eliminar';
+                    btnproceso.className = 'btn btn-danger active';
+                    nuevonombre.disabled = true;
+                    abreviatura.disabled = true;
+                }
+            });
 
-    $("#tableHeaders").append(html);
-	}
+            rootRef.child('MATERIAS').child('count').on('value', function (snapshot) {
+                Counter = snapshot.val();
+            });
 
-	function showItems(data, key) {
-    var html = '';
-    html += '<tr>';
-    $.each(data, function(key, value) {
-        html += '<td>' + value + '</td>';
-    });
-    html += '<td class="text-right"><a href="/" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</a> <a href="/" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</a></td>';
-    html += '</tr>';
+            function Procesar() {
+                if (idprocesoselect.value == 'agregar') {
+                    //Agregar la nueva materia
+                    rootRef.child('MATERIAS').child((Counter + 1)).set({
+                        nombre: nuevonombre.value,
+                        codigo: (abreviatura.value.toUpperCase())
+                    });
 
-    $('#results').append(html);
-	}	
+                    //Aumentar counter en 1
+                    rootRef.child('MATERIAS/').update({
+                        count: (Counter+1)
+                    });
 
-        function CerrarSesion() {
-            firebase.auth().signOut();
-            window.location = '../../../index.html';
-        }
+                    nuevonombre.value = '';
+                    abreviatura.value = '';
 
-    </script>
+                } else if (idprocesoselect.value == 'modificar') {
 
+                } else if (idprocesoselect.value == 'eliminar') {
+
+                }
+            }
+
+            //firebase.database().ref().child('ESTUDIANTES').on('value', function (snapshot) {
+            //    var Table = document.getElementById("ex-table");
+            //    Table.innerHTML = "";
+            //    if (snapshot.exists()) {
+            //        var content = '';
+            //        snapshot.forEach(function (data) {
+            //            var val = data.val();
+            //            content += '<tr>';
+            //            content += '<td>' + val.nombre + '</td>';
+            //            content += '<td>' + val.apellido + '</td>';
+            //            content += '<td>' + val.curso + '</td>';
+            //            content += '<td>' + val.fechanac + '</td>';
+            //            content += '<td>' + val.email + '</td>';
+            //            content += '</tr>';
+            //        });
+            //        $('#ex-table').append(content);
+            //    }
+            //});
+
+
+
+
+            //function createHeaders(data) {
+            //    var html = '';
+            //    html += '<tr>';
+            //    $.each(data, function (key, value) {
+            //        html += '<th>' + key + '</th>';
+            //    });
+            //    html += '<th class="text-right">';
+            //    html += '</tr>';
+
+            //    $("#tableHeaders").append(html);
+            //}
+
+            //function showItems(data, key) {
+            //    var html = '';
+            //    html += '<tr>';
+            //    $.each(data, function (key, value) {
+            //        html += '<td>' + value + '</td>';
+            //    });
+            //    html += '<td class="text-right"><a href="/" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</a> <a href="/" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</a></td>';
+            //    html += '</tr>';
+
+            //    $('#results').append(html);
+            //}
+
+            function CerrarSesion() {
+                firebase.auth().signOut();
+                window.location = '../../../index.html';
+            }
+
+        </script>
 </body>
 </html>
