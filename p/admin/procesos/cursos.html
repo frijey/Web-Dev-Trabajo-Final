@@ -263,6 +263,7 @@
             var estadocurso = document.getElementById('estadocurso');
             var inscritoscurso = document.getElementById('inscritoscurso');
             var btnproceso = document.getElementById('btnproceso');
+            var constantsnap;
             var CurrentValue = 1;
             var ActualPeriodo;
 
@@ -451,6 +452,10 @@
                 RellenarCursosMant();
             });
 
+            mantestuinscritos.addEventListener('change', function (e) {
+                console.log(mantestuinscritos.value);
+            });
+
             function RellenarCursosMant() {
                 if (idmantenimentoproceso.value == 'establecer') {
                     //Rellenar Mantenimiento de cursos con los Cursos sin Cursar
@@ -513,7 +518,58 @@
                     btnmantproceso.className = 'btn btn-primary active';
                     mantestuinscritos.disabled = false;
                     btnmanteliminar.className = 'btn btn-danger active';
+
+                }
+            }
+
+            function MantEstuEliminar(){
+                var eliminar = confirm('Seguro que desea eliminar al estudiante: ' + (mantestuinscritos.options[mantestuinscritos.selectedIndex].text) + ', del curso: ' + mantnombrecurso.value);
+                if (eliminar) {
+                    var numero;
+                    var counter;
+
+                    var thisuid = constantsnap[mantestuinscritos.value][2];
+
+                    console.log(thisuid);
+
+                    //Remove user from class
+                    rootRef.child('PERIODOESCOLAR/' + ActualPeriodo + '/CURSOS/' + mantcursosselect.value + '/ESTUDIANTES/' + mantestuinscritos.value).remove();
+
+                    rootRef.child('/PERIODOESCOLAR/' + ActualPeriodo + '/CURSOS/' + mantcursosselect.value + '/').once('value', function (snapshot) {
+                        numero = snapshot.child('numero').val();
+                    });
+
+                    rootRef.child('PERIODOESCOLAR/' + ActualPeriodo + '/CURSOS/' + mantcursosselect.value + '/ESTUDIANTES/').once('value', function (snapshot) {
+                        counter = snapshot.child('count').val();
+                    });
+
+                    rootRef.child('PERIODOESCOLAR/' + ActualPeriodo + '/CURSOS/' + mantcursosselect.value + '/ESTUDIANTES/').update({
+                        count: (counter - 1),
+                    });
+
+
+                    rootRef.child('CURSOS/' + mantcursosselect.value + '/').once('value', function (snapshot) {
+                        numero = snapshot.child('numero').val();
+                    });
+
+                    rootRef.child('/CURSOS/'+mantcursosselect.value+'/').update({
+                        numero: (numero - 1),
+                    });
+
+
                     
+                    //Aumentar counter en 1
+                    rootRef.child('CURSOS/').update({
+                        count: (Counter - 1)
+                    });
+                    cursosselect.selectedIndex = 0;
+                    idprocesoselect.selectedIndex = 0;
+                    Dinamismo();
+
+                    //Falta quitar los datos de ESTUDIANTES/PERIODO, ETC...
+
+                } else {
+                    //No hacer nada...
                 }
             }
 
@@ -550,8 +606,25 @@
                         mantestadocurso.value = snapshot.child('estado').val();
                     });
 
-                    rootRef.child('/PERIODOESCOLAR/' + ActualPeriodo + '/CURSOS/' + mantCurretnValue+'/ESTUDIANTES').on('value', function (snapshot) {
+                    rootRef.child('/PERIODOESCOLAR/' + ActualPeriodo + '/CURSOS/' + mantCurretnValue + '/ESTUDIANTES').on('value', function (snapshot) {
                         console.log(snapshot.val());
+                        constantsnap = snapshot.val();
+                        console.log(constantsnap);
+                        //Vaciar DropDown
+                        mantestuinscritos.options.length = 0;
+
+                        //Llenar el Dropdown
+                        var scores = snapshot.val();
+                        var Keys = Object.keys(scores);
+
+                        for (var i = 0; i < (Keys.length - 1); i++) {
+                            var opt = snapshot.child(Keys[i]).child('nombre').val();
+                            var optvalue = Keys[i];
+                            var el = document.createElement("option");
+                            el.textContent = opt;
+                            el.value = optvalue;
+                            mantestuinscritos.appendChild(el);
+                        }
                     });
 
                 }
