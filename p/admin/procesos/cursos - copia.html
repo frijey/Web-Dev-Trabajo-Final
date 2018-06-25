@@ -168,7 +168,7 @@
                                 </div>
                                 <div class="col-xs-9 col-sm-7 col-md-6 col-lg-4">
                                     <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="mantestuinscritos" tabindex="2" disabled>
-                                        <option value="agregar"></option>
+                                        <option value="agregar" id="mantselecestuinscrituos"></option>
                                     </select>
                                 </div>
                                 <div class="col-sm-4">
@@ -216,7 +216,7 @@
                                 </div>
                                 <div class="col-xs-9 col-sm-7 col-md-6 col-lg-4">
                                     <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="mantselectmateriaagregar" tabindex="2" disabled>
-                                        <option value="agregar" id="mantselecestuinscrituos"></option>
+                                        <option value="agregar"></option>
                                     </select>
                                 </div>
                                 <div class="col-sm-4">
@@ -431,16 +431,6 @@
             var mantcursosselect = document.getElementById('mantcurso');
             var idmantenimentoproceso = document.getElementById('idmantenimentoproceso');
             var btnmantproceso = document.getElementById('btnmantproceso');
-            var mantnombrecurso = document.getElementById('mantnombrecurso');
-            var mantestadocurso = document.getElementById('mantestadocurso');
-            var mantestuinscritos = document.getElementById('mantestuinscritos');
-            var btnmanteliminar = document.getElementById('btnmanteliminar');
-            //var mantselecestuinscrituos = document.getElementById('mantselecestuinscrituos');
-            //var btnmantagregar = document.getElementById('btnmantagregar');
-            //var mantmatcursos = document.getElementById('mantmatcursos');
-            //var mantmateriacursolista = document.getElementById('mantmateriacursolista');
-            //var mantselectmateriaagregar = document.getElementById('mantselectmateriaagregar');
-            //var btnmantagregarmateria = document.getElementById('btnmantagregarmateria');
             var mantCurretnValue;
 
             idmantenimentoproceso.addEventListener('change', function (e) {
@@ -503,17 +493,13 @@
                 if (idmantenimentoproceso.value == 'establecer') {
                     btnmantproceso.innerHTML = 'Establecer';
                     btnmantproceso.className = 'btn btn-success active';
-                    mantestuinscritos.disabled = true;
-                    btnmanteliminar.className = 'btn btn-danger active disabled';
                     //nombreproceso.innerHTML = 'Nombre del nuevo curso';
                     //nuevonombre.disabled = false;
 
                 } else if (idmantenimentoproceso.value == 'modificar') {
                     btnmantproceso.innerHTML = 'Modificar';
                     btnmantproceso.className = 'btn btn-primary active';
-                    mantestuinscritos.disabled = false;
-                    btnmanteliminar.className = 'btn btn-danger active';
-                    
+
                 }
             }
 
@@ -545,10 +531,8 @@
                     RellenarCursosMant();
 
                 } else if (idmantenimentoproceso.value == 'modificar') {
-                    rootRef.child('CURSOS').child(mantCurretnValue).on('value', function (snapshot) {
-                        mantnombrecurso.value = snapshot.child('nombre').val();
-                        mantestadocurso.value = snapshot.child('estado').val();
-                    });
+                    btnmantproceso.innerHTML = 'Modificar';
+                    btnmantproceso.className = 'btn btn-primary active';
 
                 }
             }

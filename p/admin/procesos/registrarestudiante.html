@@ -286,7 +286,7 @@
                 });
 
                 //Leer el conteo de estudiantes en dicho curso
-                rootRef.child('PERIODOESCOLAR').child(ActualPeriodo).child('CURSOS').child(cursoest.value).child('ESTUDIANTES').on('value', function (snapshot) {
+                rootRef.child('PERIODOESCOLAR').child(ActualPeriodo).child('CURSOS').child(cursoest.value).child('ESTUDIANTES').once('value', function (snapshot) {
                     ContadorEstudiantesCurso = snapshot.child('count').val();
                     console.log(ContadorEstudiantesCurso);
                 });
@@ -327,6 +327,12 @@
                 el.value = optvalue;
                 cursoest.appendChild(el);
             }
+
+            //Leer el conteo de estudiantes en dicho curso
+            rootRef.child('PERIODOESCOLAR').child(ActualPeriodo).child('CURSOS').child(cursoest.value).child('ESTUDIANTES').once('value', function (snapshot) {
+                ContadorEstudiantesCurso = snapshot.child('count').val();
+                console.log(ContadorEstudiantesCurso);
+            });
 
         });
 
