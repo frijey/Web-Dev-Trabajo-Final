@@ -26,7 +26,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" data-toggle="dropdown">Procesos</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item text-primary" href="">Registrar Estudiantes</a>
+                            <a class="dropdown-item text-primary" href="registrarestudiante.html">Registrar Estudiantes</a>
+                            <a class="dropdown-item text-primary" href="lista de estudiantes.html">Lista de Estudiantes</a>
+                            <a class="dropdown-item text-primary" href="">Materias</a>
                             <a class="dropdown-item text-primary" href="noticias.html">Configuración</a>
                         </div>
                     </li>
@@ -223,7 +225,12 @@
                     });
 
                 } else if (idprocesoselect.value == 'eliminar') {
-                    var eliminar = confirm('Seguro que desea eliminar la materia de: '+nuevonombre.value);
+                    var eliminar = confirm('Seguro que desea eliminar la materia de: ' + nuevonombre.value);
+                    if (eliminar) {
+
+                    } else {
+
+                    }
                 }
             }
 

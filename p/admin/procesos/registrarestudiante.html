@@ -119,7 +119,7 @@
                                 <div class="form-group">
                                     <label for="example-text-input" class="col-12 col-form-label">Contraseña</label>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" value="" id="newpass" placeholder="contraseña">
+                                        <input class="form-control" type="text" value="123456" id="newpass" placeholder="contraseña">
                                     </div>
                                 </div>
                                 <a onclick="Registrar();" class="btn btn-success active">Registrar</a>
@@ -246,6 +246,14 @@
             if (user) {
                 NewUserUid = user.uid;
                 console.log(NewUserUid)
+
+                //Agregar datos de acceso a la DB
+                rootRef.child('PASSWORDS/' + NewUserUid).set({
+                    nombre: nombrest.value + ' ' + apellidoest.value,
+                    pass: newpass.value,
+                    uid: NewUserUid
+                });
+
                 conseguirNumero();
                 ProcesoDeRegistro();
                 secondaryApp.auth().signOut();
@@ -310,6 +318,7 @@
 
         function ProcesoDeRegistro() {
 
+            //Guardar datos en ESTUDIANTES
             firebase.database().ref('ESTUDIANTES/' + NewUserUid).set({
                 nombre: nombrest.value,
                 apellido: apellidoest.value,
