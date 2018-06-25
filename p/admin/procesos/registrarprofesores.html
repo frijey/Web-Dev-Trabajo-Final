@@ -49,7 +49,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3 col-lg-3 " align="center">
-                                <img src="../../../pics/profile.png" class="img-circle img-fluid img-responsive" id="imgestudiante"> <br /><br />
+                                <img src="../../../pics/profile.png" class="img-circle img-fluid img-responsive" id="imgprofesor"> <br /><br />
                                 <input type="file" id="selectedFile" style="display: none;" accept=".jpg" />
                                 <input class="btn btn-warning" type="button" value="Cargar Imagen" onclick="document.getElementById('selectedFile').click();" />
                                 <br />
@@ -160,7 +160,7 @@
         var secondaryApp = firebase.initializeApp(config, "Secondary");
 
         var btnregistrar = document.getElementById('registrarbtn');
-        var actualphoto = document.getElementById('imgestudiante');
+        var actualphoto = document.getElementById('imgprofesor');
         var file = document.getElementById('selectedFile');
         var rutafoto = document.getElementById('rutafoto');
         var nombreprof = document.getElementById('nombreprof');
@@ -176,7 +176,7 @@
 
         var MyKey = '';
         var fotourl = actualphoto.src;
-        var NewUserUid = 'TESTuid-asdasdasd';
+        var NewUserUid = 'TESTuid-profsss';
         var ActualPeriodo = '';
         var CountProfesores = 1;
         var RolesCount = 1;
@@ -189,14 +189,6 @@
             //Get file
             fileFrom = e.target.files[0];
             rutafoto.value = e.target.value;
-
-            firebase.database().ref('CURSOS/' + cursoest.value + '/numero').once('value').then(function (snapshot) {
-                if (snapshot != null) {
-                    //Asignar el número buscado
-                    numeroest = snapshot.val();
-                } else {
-                }
-            });
 
         });
 
@@ -215,7 +207,7 @@
         //Conseguir el periodo actual
         rootRef.child('periodoactual').on('value', function (snapshot) {
             ActualPeriodo = snapshot.val();
-            console.log(ActualPeriodo);
+            console.log('Periodo actual: ' + ActualPeriodo);
         });
 
         function Registrar() {
@@ -225,7 +217,7 @@
             //validar que ningún campo esté vacío...
             if (nombreprof.value == "" || apellidoprof.value == "" || generoprof.value == "" || fechanac.value == "" || fechainicio.value == "" ||
                 cedulaid.value == "" || telprof.value == "" || newemail.value == "" || newpass.value == "" || rutafoto.value == "") {
-                alert('Rellene todos los campos y seleccione la foto del estudiante');
+                alert('Rellene todos los campos y seleccione la foto del profesor...');
                 btnregistrar.className = 'btn btn-success active';
                 return;
             } else {
@@ -288,31 +280,6 @@
             //Aumentar uno al número
             firebase.database().ref('ROLES/').update({
                 count: (RolesCount + 1),
-            });
-
-            console.log(ContadorEstudiantesCurso);
-            //Aumentar uno al número
-            firebase.database().ref('PERIODOESCOLAR/' + ActualPeriodo + '/CURSOS/' + cursoest.value + '/ESTUDIANTES/').update({
-                count: (ContadorEstudiantesCurso + 1),
-            });
-            console.log(ContadorEstudiantesCurso);
-
-            //Anotar Estudiante en el curso
-            test = {
-                [numeroest]: {
-                    nombre: (nombreprof.value + ' ' + apellidoprof.value),
-                    numero: numeroest,
-                    uid: NewUserUid
-                },
-            };
-            console.log(test);
-
-            firebase.database().ref('PERIODOESCOLAR/' + ActualPeriodo + '/CURSOS/' + cursoest.value + '/ESTUDIANTES/').update({
-                [numeroest]: {
-                    nombre: (nombreprof.value + ' ' + apellidoprof.value),
-                    numero: numeroest,
-                    uid: NewUserUid
-                },
             });
 
             //Upload the profile picture
