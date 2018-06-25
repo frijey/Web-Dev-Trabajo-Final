@@ -1,0 +1,1043 @@
+{
+  "CONFIGURACION" : {
+    "bienvenida" : {
+      "contenido" : "Por el momento, el proceso de exposición sería aclarar las bases que sustentan lo que es BootStrap sin sobrepasar a los temas de los siguientes grupos de exposición Estaróamos aclarando en un principio las bases del Front-End.Por el momento, el proceso de exposición sería aclarar las bases que sustentan lo que es BootStrap sin sobrepasar a los temas de los siguientes grupos de exposición Estaróamos aclarando en un principio las bases del Front-End.",
+      "titulo" : "Bienvenido"
+    },
+    "nosotros" : {
+      "contenido" : "BLABLABLA",
+      "titulo" : "Nosotros"
+    },
+    "noticia1" : {
+      "contenido" : "Recordatorio: Este viernes 29 de junio tendremos una actividad especial de ajedrez al horario de receso. No se les olvidan la oportunidad. Habrán tres ganadores con premios especiales ¿crees que vas a ganar? Solo hay una forma de saber.",
+      "titulo" : "Matemática"
+    },
+    "noticia2" : {
+      "contenido" : "Prueba",
+      "titulo" : "Ingles"
+    },
+    "noticia3" : {
+      "contenido" : "Una feria de ciencias es una exposición pública de proyectos científicos y tecnológicos realizados por estudiantes, en las que estos efectúan demostraciones, ofrecen explicaciones e incluso responden a cuestiones respecto al trabajo expuesto. \n\nEl Objetivo principal de estos eventos es Orientar y ejercitar a los jóvenes en el empleo del método científico así como el acercamiento de la comunidad a la ciencia o la tecnología (ámbitos aparentemente distanciados en la sociedad).",
+      "titulo" : "Ciencia"
+    }
+  },
+  "CURSOS" : {
+    "1-A" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "1-B" : {
+      "estado" : "ACTIVO",
+      "numero" : 8
+    },
+    "2-A" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "2-B" : {
+      "estado" : "ACTIVO",
+      "numero" : 2
+    },
+    "3-A" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "3-B" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "4-A" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "4-B" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "5-A" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "5-B" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "M1-A" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "M1-B" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "M2-A" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "M2-B" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "M3-A" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "M3-B" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "M4-A" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "M4-B" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "M5-A" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "M5-B" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "M6-A" : {
+      "estado" : "ACITVO",
+      "numero" : 1
+    },
+    "M6-B" : {
+      "estado" : "ACTIVO",
+      "numero" : 1
+    },
+    "count" : 24
+  },
+  "ESTUDIANTES" : {
+    "0CVKTobOuLPNUG3cPRqfd1CA9413" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 14
+        } ]
+      },
+      "apellido" : "junior",
+      "curso" : "1-A",
+      "email" : "galbinl@gmail.com",
+      "fechanac" : "2003-09-05",
+      "foto" : "fotos/0CVKTobOuLPNUG3cPRqfd1CA9413.jpg",
+      "genero" : "Masculino",
+      "nombre" : "baez",
+      "nombremadre" : "carla luna",
+      "nombrepadre" : "galvin sol",
+      "telefono" : "8295471236",
+      "uid" : "0CVKTobOuLPNUG3cPRqfd1CA9413"
+    },
+    "2nLtSnQCvcWfLAr1sJw9jP0AGd52" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-B",
+          "numero" : 1
+        } ]
+      },
+      "apellido" : "New",
+      "curso" : "1-B",
+      "email" : "marquez@gmail.com",
+      "fechanac" : "2007-07-07",
+      "foto" : "fotos/2nLtSnQCvcWfLAr1sJw9jP0AGd52.jpg",
+      "genero" : "Masculino",
+      "nombre" : "Natural Boy",
+      "nombremadre" : "Maquez Perez",
+      "nombrepadre" : "Esteban",
+      "telefono" : "809-555-4444",
+      "uid" : "2nLtSnQCvcWfLAr1sJw9jP0AGd52"
+    },
+    "409dymXiNrh6iV8PUccVFr6XvLq2" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 11
+        } ]
+      },
+      "apellido" : "norte",
+      "curso" : "1-A",
+      "email" : "euclidian@gmail.com",
+      "fechanac" : "2004-08-06",
+      "foto" : "fotos/409dymXiNrh6iV8PUccVFr6XvLq2.jpg",
+      "genero" : "Femenino",
+      "nombre" : "euclidia",
+      "nombremadre" : "gloria espacio",
+      "nombrepadre" : "jose neuron",
+      "telefono" : "8094658974",
+      "uid" : "409dymXiNrh6iV8PUccVFr6XvLq2"
+    },
+    "5kK7qPj4cccNOdhihZeGgOSDSKe2" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 10
+        } ]
+      },
+      "apellido" : "Musk",
+      "curso" : "1-A",
+      "email" : "elonmusk@gmail.com",
+      "fechanac" : "2005-01-01",
+      "foto" : "fotos/5kK7qPj4cccNOdhihZeGgOSDSKe2.jpg",
+      "genero" : "Masculino",
+      "nombre" : "Elon",
+      "nombremadre" : "Damary monumental",
+      "nombrepadre" : "Nathanial Musk",
+      "telefono" : "8297894561",
+      "uid" : "5kK7qPj4cccNOdhihZeGgOSDSKe2"
+    },
+    "7joh9uz8qOhDmxBoOMfnvCeipd92" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 16
+        } ]
+      },
+      "apellido" : "Perez",
+      "curso" : "1-A",
+      "email" : "ejemplo@hotmail.com",
+      "fechanac" : "1995-02-01",
+      "foto" : "fotos/7joh9uz8qOhDmxBoOMfnvCeipd92.jpg",
+      "genero" : "Masculino",
+      "nombre" : "Maikel",
+      "nombremadre" : "NBombreMadre",
+      "nombrepadre" : "Cualquiera",
+      "telefono" : "809-855-8888",
+      "uid" : "7joh9uz8qOhDmxBoOMfnvCeipd92"
+    },
+    "99qYCaPPFhhxKBv8hVNMNIf5dd53" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 9
+        } ]
+      },
+      "apellido" : "martez",
+      "curso" : "1-A",
+      "email" : "cristalm@hotmail.com",
+      "fechanac" : "2006-07-22",
+      "foto" : "fotos/99qYCaPPFhhxKBv8hVNMNIf5dd53.jpg",
+      "genero" : "Femenino",
+      "nombre" : "cristal",
+      "nombremadre" : "gloria martez",
+      "nombrepadre" : "miguelangel bonifacio",
+      "telefono" : "8294657894",
+      "uid" : "99qYCaPPFhhxKBv8hVNMNIf5dd53"
+    },
+    "9aWIYWsGficT4kzp6qEFbMxjcqi2" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 4
+        } ]
+      },
+      "apellido" : "santos",
+      "curso" : "1-A",
+      "email" : "miguelrr@gmail.com",
+      "fechanac" : "2001-08-08",
+      "foto" : "fotos/9aWIYWsGficT4kzp6qEFbMxjcqi2.jpg",
+      "genero" : "Masculino",
+      "nombre" : "miguel",
+      "nombremadre" : "elizabeth florez",
+      "nombrepadre" : "carlos luna",
+      "telefono" : "8299632587",
+      "uid" : "9aWIYWsGficT4kzp6qEFbMxjcqi2"
+    },
+    "9jtnMzznUuX2QBeILNrF5a84GXG3" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 3
+        } ]
+      },
+      "apellido" : "diaz",
+      "curso" : "1-A",
+      "email" : "karentw@hotmail.com",
+      "fechanac" : "2005-02-09",
+      "foto" : "fotos/9jtnMzznUuX2QBeILNrF5a84GXG3.jpg",
+      "genero" : "Femenino",
+      "nombre" : "karent",
+      "nombremadre" : "vicente armanza",
+      "nombrepadre" : "margarita paulino",
+      "telefono" : "8097894561",
+      "uid" : "9jtnMzznUuX2QBeILNrF5a84GXG3"
+    },
+    "9pPjJIv8DpPJaiMqC0KVzBEVpV42" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 6
+        } ]
+      },
+      "apellido" : "cruz",
+      "curso" : "1-A",
+      "email" : "albertoc@hotmail.com",
+      "fechanac" : "2004-03-28",
+      "foto" : "fotos/9pPjJIv8DpPJaiMqC0KVzBEVpV42.jpg",
+      "genero" : "Masculino",
+      "nombre" : "alberto",
+      "nombremadre" : "carla perez",
+      "nombrepadre" : "carlos smith",
+      "telefono" : "8097598641",
+      "uid" : "9pPjJIv8DpPJaiMqC0KVzBEVpV42"
+    },
+    "AxKGhbIVOUXWvxIJVUSaby31Bs02" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 3
+        } ]
+      },
+      "apellido" : "TEst test",
+      "curso" : "1-A",
+      "email" : "testttt@gmail.com",
+      "fechanac" : "2003-05-01",
+      "foto" : "fotos/AxKGhbIVOUXWvxIJVUSaby31Bs02.jpg",
+      "genero" : "Femenino",
+      "nombre" : "Test",
+      "nombremadre" : "mother",
+      "nombrepadre" : "father",
+      "telefono" : "202-585-9999",
+      "uid" : "AxKGhbIVOUXWvxIJVUSaby31Bs02"
+    },
+    "AyKotUg7wFaPtVf7ctf5ngc3zC52" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-B",
+          "numero" : 4
+        } ]
+      },
+      "apellido" : "Suero",
+      "curso" : "1-B",
+      "email" : "judithnew@gmail.com",
+      "fechanac" : "2004-01-01",
+      "foto" : "fotos/AyKotUg7wFaPtVf7ctf5ngc3zC52.jpg",
+      "genero" : "Femenino",
+      "nombre" : "Judith",
+      "nombremadre" : "Madre",
+      "nombrepadre" : "Padre",
+      "telefono" : "809-000-0000",
+      "uid" : "AyKotUg7wFaPtVf7ctf5ngc3zC52"
+    },
+    "DbFGMOWZo1RSUtOQILH2Nenhdfk1" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 1
+        } ]
+      },
+      "apellido" : "Santos",
+      "curso" : "1-A",
+      "email" : "juanm@gmail.com",
+      "fechanac" : "1111-01-05",
+      "foto" : "fotos/DbFGMOWZo1RSUtOQILH2Nenhdfk1.jpg",
+      "genero" : "Masculino",
+      "nombre" : "Galvin",
+      "nombremadre" : "juana martinez",
+      "nombrepadre" : "juan perez",
+      "telefono" : "8098297411",
+      "uid" : "DbFGMOWZo1RSUtOQILH2Nenhdfk1"
+    },
+    "F7q8vYBHpIbFZ1ulMsfqJdy7Ert1" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 15
+        } ]
+      },
+      "apellido" : "pan",
+      "curso" : "1-A",
+      "email" : "peterp@gmail.com",
+      "fechanac" : "2004-09-09",
+      "foto" : "fotos/F7q8vYBHpIbFZ1ulMsfqJdy7Ert1.jpg",
+      "genero" : "Masculino",
+      "nombre" : "peter",
+      "nombremadre" : "maria luz",
+      "nombrepadre" : "john pan",
+      "telefono" : "8295471691",
+      "uid" : "F7q8vYBHpIbFZ1ulMsfqJdy7Ert1"
+    },
+    "FMVSSwaYPYR2fuN3GOjxL0NYZHT2" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 1
+        } ]
+      },
+      "apellido" : "Cepeda Gonzales",
+      "curso" : "1-A",
+      "email" : "examplenew@gmail.com",
+      "fechanac" : "2011-12-11",
+      "foto" : "fotos/FMVSSwaYPYR2fuN3GOjxL0NYZHT2.jpg",
+      "genero" : "Masculino",
+      "nombre" : "Fakepath",
+      "nombremadre" : "...",
+      "nombrepadre" : "...",
+      "telefono" : "809-574-2222",
+      "uid" : "FMVSSwaYPYR2fuN3GOjxL0NYZHT2"
+    },
+    "IG555qKLt2cAN0xjOeO9R8InVCG2" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-B",
+          "numero" : 3
+        } ]
+      },
+      "apellido" : "Valdez",
+      "curso" : "1-B",
+      "email" : "newgrillls@gmail.com",
+      "fechanac" : "2005-02-05",
+      "foto" : "fotos/IG555qKLt2cAN0xjOeO9R8InVCG2.jpg",
+      "genero" : "Femenino",
+      "nombre" : "Any Girl",
+      "nombremadre" : "My Mother",
+      "nombrepadre" : "My Father",
+      "telefono" : "809-000-0000",
+      "uid" : "IG555qKLt2cAN0xjOeO9R8InVCG2"
+    },
+    "MduGw1Z8pCYuQvHHCebct08CLoi1" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 4
+        } ]
+      },
+      "apellido" : "Perez",
+      "curso" : "1-A",
+      "email" : "prueba@gmail.com",
+      "fechanac" : "2001-01-05",
+      "foto" : "fotos/MduGw1Z8pCYuQvHHCebct08CLoi1.jpg",
+      "genero" : "Masculino",
+      "nombre" : "gregorio",
+      "nombremadre" : "Maria Cruz",
+      "nombrepadre" : "Juan Perez",
+      "telefono" : "8091234567",
+      "uid" : "MduGw1Z8pCYuQvHHCebct08CLoi1"
+    },
+    "NXPfZCrXYmdT1eKl2S2wcTWIReW2" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 13
+        } ]
+      },
+      "apellido" : "reyes",
+      "curso" : "1-A",
+      "email" : "waldyg@hotmail.com",
+      "fechanac" : "2007-09-08",
+      "foto" : "fotos/NXPfZCrXYmdT1eKl2S2wcTWIReW2.jpg",
+      "genero" : "Masculino",
+      "nombre" : "waldy",
+      "nombremadre" : "carla cruz",
+      "nombrepadre" : "alberto perez",
+      "telefono" : "8594726494",
+      "uid" : "NXPfZCrXYmdT1eKl2S2wcTWIReW2"
+    },
+    "PcT5I0pX0IgumRVuiHXWEwlb5Wa2" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 12
+        } ]
+      },
+      "apellido" : "basic",
+      "curso" : "1-A",
+      "email" : "leoniciob@gmail.com",
+      "fechanac" : "2002-12-12",
+      "foto" : "fotos/PcT5I0pX0IgumRVuiHXWEwlb5Wa2.jpg",
+      "genero" : "Masculino",
+      "nombre" : "leonicio",
+      "nombremadre" : "juana maria",
+      "nombrepadre" : "bill basico",
+      "telefono" : "8097412569",
+      "uid" : "PcT5I0pX0IgumRVuiHXWEwlb5Wa2"
+    },
+    "QUycbGV5NfeNw7F2JXZCZ8KyUPv1" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-B",
+          "numero" : 6
+        } ]
+      },
+      "apellido" : "Garci",
+      "curso" : "1-B",
+      "email" : "newandy@hotmail.com",
+      "fechanac" : "1995-02-03",
+      "foto" : "fotos/QUycbGV5NfeNw7F2JXZCZ8KyUPv1.jpg",
+      "genero" : "Masculino",
+      "nombre" : "Andy Jesús",
+      "nombremadre" : "Marisol",
+      "nombrepadre" : "Jesús",
+      "telefono" : "809-000-0000",
+      "uid" : "QUycbGV5NfeNw7F2JXZCZ8KyUPv1"
+    },
+    "SvDHSzlNOuVvB8mOPSteVEK13dJ3" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-B",
+          "numero" : 2
+        } ]
+      },
+      "apellido" : "De Montreal",
+      "curso" : "1-B",
+      "email" : "nuewww@hotmail.com",
+      "fechanac" : "2007-01-05",
+      "foto" : "fotos/SvDHSzlNOuVvB8mOPSteVEK13dJ3.jpg",
+      "genero" : "Masculino",
+      "nombre" : "Juan",
+      "nombremadre" : "Women",
+      "nombrepadre" : "Men",
+      "telefono" : "809-888-5555",
+      "uid" : "SvDHSzlNOuVvB8mOPSteVEK13dJ3"
+    },
+    "Wg2LRecwM5dWaCasEx1Av6lXWB22" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 2
+        } ]
+      },
+      "apellido" : "Dolores",
+      "curso" : "1-A",
+      "email" : "margarita@gmail.com",
+      "fechanac" : "1986-06-02",
+      "foto" : "fotos/Wg2LRecwM5dWaCasEx1Av6lXWB22.jpg",
+      "genero" : "Femenino",
+      "nombre" : "Margarita",
+      "nombremadre" : "claudia martinez",
+      "nombrepadre" : "pedro alvarez",
+      "telefono" : "8294567896",
+      "uid" : "Wg2LRecwM5dWaCasEx1Av6lXWB22"
+    },
+    "X02EpfFLEjWqvkqPvGO3bABBErC3" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 17
+        } ]
+      },
+      "apellido" : "Strike Rodríguez",
+      "curso" : "1-A",
+      "email" : "unicocontador@gmail.com",
+      "fechanac" : "2008-06-22",
+      "foto" : "fotos/X02EpfFLEjWqvkqPvGO3bABBErC3.jpg",
+      "genero" : "Masculino",
+      "nombre" : "Counter",
+      "nombremadre" : "Nombre de Mami",
+      "nombrepadre" : "Nombre de Papi",
+      "telefono" : "809-000-0000",
+      "uid" : "X02EpfFLEjWqvkqPvGO3bABBErC3"
+    },
+    "cljIyaZ0PYONb0KGnKer4hZdbPp2" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 8
+        } ]
+      },
+      "apellido" : "peerz",
+      "curso" : "1-A",
+      "email" : "gloriap@hotmail.com",
+      "fechanac" : "2003-03-04",
+      "foto" : "fotos/cljIyaZ0PYONb0KGnKer4hZdbPp2.jpg",
+      "genero" : "Femenino",
+      "nombre" : "gloria",
+      "nombremadre" : "carla dolores",
+      "nombrepadre" : "miguel perez",
+      "telefono" : "8294044004",
+      "uid" : "cljIyaZ0PYONb0KGnKer4hZdbPp2"
+    },
+    "count" : 29,
+    "e1lNk42SFOUTMog2UZPFKXMzwD02" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 2
+        } ]
+      },
+      "apellido" : "Real Overtru",
+      "curso" : "1-A",
+      "email" : "marlin@gmail.com",
+      "fechanac" : "1994-10-14",
+      "foto" : "fotos/e1lNk42SFOUTMog2UZPFKXMzwD02.jpg",
+      "genero" : "Femenino",
+      "nombre" : "Conocimiento",
+      "nombremadre" : "Altagracia Arias",
+      "nombrepadre" : "Pedro Julio",
+      "telefono" : "809-952-9279",
+      "uid" : "e1lNk42SFOUTMog2UZPFKXMzwD02"
+    },
+    "g0vBMopc0ad1P1a1cKoXIJ5vlrl2" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-B",
+          "numero" : 5
+        } ]
+      },
+      "apellido" : "En Conseguirlo",
+      "curso" : "1-B",
+      "email" : "myhear@hotmail.com",
+      "fechanac" : "2007-05-05",
+      "foto" : "fotos/g0vBMopc0ad1P1a1cKoXIJ5vlrl2.jpg",
+      "genero" : "Femenino",
+      "nombre" : "Primera",
+      "nombremadre" : "Holy Sprt.",
+      "nombrepadre" : "God The Father",
+      "telefono" : "809-000-0000",
+      "uid" : "g0vBMopc0ad1P1a1cKoXIJ5vlrl2"
+    },
+    "it9xkH38feQxQkrwJuVqcPt6GKj2" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-B",
+          "numero" : 7
+        } ]
+      },
+      "apellido" : "Marte",
+      "curso" : "1-B",
+      "email" : "turndwfw@hotmail.com",
+      "fechanac" : "20019-02-01",
+      "foto" : "fotos/it9xkH38feQxQkrwJuVqcPt6GKj2.jpg",
+      "genero" : "Femenino",
+      "nombre" : "Alextra",
+      "nombremadre" : "Elle",
+      "nombrepadre" : "Me",
+      "telefono" : "809-000-0000",
+      "uid" : "it9xkH38feQxQkrwJuVqcPt6GKj2"
+    },
+    "ll13HRQBdpcdbTqJAheMRfU16Xg1" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 7
+        } ]
+      },
+      "apellido" : "jupeter",
+      "curso" : "1-A",
+      "email" : "brunom@hotmail.com",
+      "fechanac" : "1999-03-12",
+      "foto" : "fotos/ll13HRQBdpcdbTqJAheMRfU16Xg1.jpg",
+      "genero" : "Masculino",
+      "nombre" : "bruno",
+      "nombremadre" : "maria estevan",
+      "nombrepadre" : "jorge marte",
+      "telefono" : "8297856423",
+      "uid" : "ll13HRQBdpcdbTqJAheMRfU16Xg1"
+    },
+    "rIpQ0LWZHsNlYe9pRctTDOWmoZg2" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 5
+        } ]
+      },
+      "apellido" : "smith",
+      "curso" : "1-A",
+      "email" : "johngg@gmail.com",
+      "fechanac" : "2001-07-22",
+      "foto" : "fotos/rIpQ0LWZHsNlYe9pRctTDOWmoZg2.jpg",
+      "genero" : "Masculino",
+      "nombre" : "john",
+      "nombremadre" : "margaret johnson",
+      "nombrepadre" : "johnathan smith",
+      "telefono" : "8297895836",
+      "uid" : "rIpQ0LWZHsNlYe9pRctTDOWmoZg2"
+    },
+    "tti9FmkONddoxW2HJFEjI8ehChL2" : {
+      "PERIODO" : {
+        "PERIODOSCURSADOS" : [ null, {
+          "curso" : "1-A",
+          "numero" : 1
+        } ]
+      },
+      "apellido" : "Conter",
+      "curso" : "1-A",
+      "email" : "newemail@gmail.com",
+      "fechanac" : "2000-02-01",
+      "foto" : "fotos/tti9FmkONddoxW2HJFEjI8ehChL2.jpg",
+      "genero" : "Masculino",
+      "nombre" : "New Contador",
+      "nombremadre" : "New Mother Name",
+      "nombrepadre" : "New Father Name",
+      "telefono" : "809-574-8855",
+      "uid" : "tti9FmkONddoxW2HJFEjI8ehChL2"
+    }
+  },
+  "MATERIAS" : {
+    "1" : {
+      "codigo" : "ESP",
+      "nombre" : "Lengua Española"
+    },
+    "2" : {
+      "codigo" : "MAT",
+      "nombre" : "Matemáticas"
+    },
+    "3" : {
+      "codigo" : "SOC",
+      "nombre" : "Ciencias Sociales"
+    },
+    "4" : {
+      "codigo" : "NAT",
+      "nombre" : "Ciencias de la Naturaleza"
+    },
+    "5" : {
+      "codigo" : "ING",
+      "nombre" : "Inglés"
+    },
+    "6" : {
+      "codigo" : "FRA",
+      "nombre" : "Francés"
+    },
+    "7" : {
+      "codigo" : "ART",
+      "nombre" : "Educación Artística"
+    },
+    "8" : {
+      "codigo" : "FIS",
+      "nombre" : "Educación Física"
+    },
+    "9" : {
+      "codigo" : "FIH",
+      "nombre" : "Formación Integral Humana y Religiosa"
+    },
+    "count" : 9
+  },
+  "PASSWORDS" : {
+    "2nLtSnQCvcWfLAr1sJw9jP0AGd52" : {
+      "nombre" : "Natural Boy New",
+      "pass" : "123456",
+      "uid" : "2nLtSnQCvcWfLAr1sJw9jP0AGd52"
+    },
+    "409dymXiNrh6iV8PUccVFr6XvLq2" : {
+      "nombre" : "Juan Perez",
+      "pass" : 123456,
+      "uid" : "409dymXiNrh6iV8PUccVFr6XvLq2"
+    },
+    "9vixdFadavdVsflcNOyGt8Lv8ms2" : {
+      "nombre" : "Mitria Lax",
+      "pass" : "123456",
+      "uid" : "9vixdFadavdVsflcNOyGt8Lv8ms2"
+    },
+    "AyKotUg7wFaPtVf7ctf5ngc3zC52" : {
+      "nombre" : " ",
+      "pass" : "123456",
+      "uid" : "AyKotUg7wFaPtVf7ctf5ngc3zC52"
+    },
+    "IG555qKLt2cAN0xjOeO9R8InVCG2" : {
+      "nombre" : "Any Girl Valdez",
+      "pass" : "123456",
+      "uid" : "IG555qKLt2cAN0xjOeO9R8InVCG2"
+    },
+    "QUycbGV5NfeNw7F2JXZCZ8KyUPv1" : {
+      "nombre" : "Andy Jesús Garci",
+      "pass" : "123456",
+      "uid" : "QUycbGV5NfeNw7F2JXZCZ8KyUPv1"
+    },
+    "SvDHSzlNOuVvB8mOPSteVEK13dJ3" : {
+      "nombre" : "Juan De Montreal",
+      "pass" : "123456",
+      "uid" : "SvDHSzlNOuVvB8mOPSteVEK13dJ3"
+    },
+    "X02EpfFLEjWqvkqPvGO3bABBErC3" : {
+      "nombre" : " ",
+      "pass" : "123456",
+      "uid" : "X02EpfFLEjWqvkqPvGO3bABBErC3"
+    },
+    "count" : 13,
+    "fxCYcRX7nCXBXCE0ubAwH7WQN4f2" : {
+      "nombre" : " ",
+      "pass" : "",
+      "uid" : "fxCYcRX7nCXBXCE0ubAwH7WQN4f2"
+    },
+    "g0vBMopc0ad1P1a1cKoXIJ5vlrl2" : {
+      "nombre" : "Primera En Conseguirlo",
+      "pass" : "123456",
+      "uid" : "g0vBMopc0ad1P1a1cKoXIJ5vlrl2"
+    },
+    "gQBXXWxryQevG32H5BwcGi2w8EP2" : {
+      "nombre" : " ",
+      "pass" : "123456",
+      "uid" : "gQBXXWxryQevG32H5BwcGi2w8EP2"
+    },
+    "gkEll7P4soP80qefHaypq3TgOFJ3" : {
+      "nombre" : "Mitria Lax",
+      "pass" : "123456",
+      "uid" : "gkEll7P4soP80qefHaypq3TgOFJ3"
+    },
+    "it9xkH38feQxQkrwJuVqcPt6GKj2" : {
+      "nombre" : "Alextra Marte",
+      "pass" : "123456",
+      "uid" : "it9xkH38feQxQkrwJuVqcPt6GKj2"
+    }
+  },
+  "PERIODOESCOLAR" : {
+    "1" : {
+      "CURSOS" : {
+        "1-A" : {
+          "ESTUDIANTES" : {
+            "1" : {
+              "nombre" : "Fakepath Cepeda Gonzales",
+              "numero" : [ 1 ],
+              "uid" : "FMVSSwaYPYR2fuN3GOjxL0NYZHT2"
+            },
+            "2" : {
+              "nombre" : "Conocimiento Real Overtru",
+              "numero" : [ 2 ],
+              "uid" : "e1lNk42SFOUTMog2UZPFKXMzwD02"
+            },
+            "3" : {
+              "nombre" : "Test TEst test",
+              "numero" : 3,
+              "uid" : "AxKGhbIVOUXWvxIJVUSaby31Bs02"
+            },
+            "4" : {
+              "nombre" : "gregorio Perez",
+              "numero" : 4,
+              "uid" : "MduGw1Z8pCYuQvHHCebct08CLoi1"
+            },
+            "0CVKTobOuLPNUG3cPRqfd1CA9413" : "nombre:baez junior,numero:1",
+            "409dymXiNrh6iV8PUccVFr6XvLq2" : "euclidia norte",
+            "5kK7qPj4cccNOdhihZeGgOSDSKe2" : "Elon Musk",
+            "7joh9uz8qOhDmxBoOMfnvCeipd92" : "Maikel Perez",
+            "99qYCaPPFhhxKBv8hVNMNIf5dd53" : "cristal martez",
+            "9aWIYWsGficT4kzp6qEFbMxjcqi2" : "miguel santos",
+            "9jtnMzznUuX2QBeILNrF5a84GXG3" : "karent diaz",
+            "9pPjJIv8DpPJaiMqC0KVzBEVpV42" : "alberto cruz",
+            "DbFGMOWZo1RSUtOQILH2Nenhdfk1" : "Galvin Santos",
+            "F7q8vYBHpIbFZ1ulMsfqJdy7Ert1" : "peter pan",
+            "NXPfZCrXYmdT1eKl2S2wcTWIReW2" : "waldy reyes",
+            "PcT5I0pX0IgumRVuiHXWEwlb5Wa2" : "leonicio basic",
+            "Wg2LRecwM5dWaCasEx1Av6lXWB22" : "Margarita Dolores",
+            "cljIyaZ0PYONb0KGnKer4hZdbPp2" : "gloria peerz",
+            "count" : 2,
+            "ll13HRQBdpcdbTqJAheMRfU16Xg1" : "bruno jupeter",
+            "rIpQ0LWZHsNlYe9pRctTDOWmoZg2" : "john smith"
+          },
+          "MATERIAS" : {
+            "1" : {
+              "CALIFICACIONES" : {
+                "OCTUBRE" : [ null, 90, 99 ],
+                "SEPTIEMBRE" : [ null, 85, 0 ]
+              },
+              "idcurso" : "1-A",
+              "idmateria" : "1",
+              "idprofe" : "4H2FBlocxahxij1fPb4mSCgR0ct2",
+              "nombre" : "Lengua Española"
+            },
+            "2" : {
+              "idcurso" : "1-A",
+              "idmateria" : "2",
+              "idprofe" : "ArfluCrif9Qc4M7Lph62hnj99Wy1",
+              "nombre" : "Matemáticas"
+            },
+            "count" : 2
+          },
+          "estado" : "VIGENTE"
+        },
+        "1-B" : {
+          "ESTUDIANTES" : {
+            "1" : {
+              "nombre" : "Natural Boy New",
+              "numero" : 1,
+              "uid" : "2nLtSnQCvcWfLAr1sJw9jP0AGd52"
+            },
+            "2" : {
+              "nombre" : "Juan De Montreal",
+              "numero" : 2,
+              "uid" : "SvDHSzlNOuVvB8mOPSteVEK13dJ3"
+            },
+            "3" : {
+              "nombre" : "Any Girl Valdez",
+              "numero" : 3,
+              "uid" : "IG555qKLt2cAN0xjOeO9R8InVCG2"
+            },
+            "4" : {
+              "asd" : true
+            },
+            "5" : {
+              "nombre" : "Primera En Conseguirlo",
+              "numero" : 5,
+              "uid" : "g0vBMopc0ad1P1a1cKoXIJ5vlrl2"
+            },
+            "6" : {
+              "nombre" : "Andy Jesús Garci",
+              "numero" : 6,
+              "uid" : "QUycbGV5NfeNw7F2JXZCZ8KyUPv1"
+            },
+            "7" : {
+              "nombre" : "Alextra Marte",
+              "numero" : 7,
+              "uid" : "it9xkH38feQxQkrwJuVqcPt6GKj2"
+            },
+            "count" : 7
+          }
+        }
+      },
+      "añodesde" : 2018,
+      "añohasta" : 2019,
+      "estado" : "VIGENTE",
+      "fechainicio" : "2018-08-27"
+    },
+    "count" : 1
+  },
+  "PROFESORES" : {
+    "1" : {
+      "PERIODOS" : [ null, {
+        "MATERIAS" : {
+          "1" : {
+            "curso" : "1-A",
+            "idmateria" : 4
+          },
+          "counter" : 1
+        }
+      } ],
+      "cedula" : "050-0000000-0",
+      "contacto" : "809-000-0000",
+      "email" : "profeluis@gmail.com",
+      "estado" : "ACTIVO",
+      "fechainicio" : "2018-08-21",
+      "fechanac" : "1992-05-07",
+      "nombre" : "Luis Pérez Bueno",
+      "uid" : "4H2FBlocxahxij1fPb4mSCgR0ct2"
+    },
+    "2" : {
+      "PERIODOS" : [ null, {
+        "MATERIAS" : {
+          "1" : {
+            "curso" : "1-A",
+            "idmateria" : 1
+          },
+          "counter" : 1
+        }
+      } ],
+      "cedula" : "050-0000000-1",
+      "contacto" : "809-000-1111",
+      "email" : "profekeny@gmail.com",
+      "estado" : "ACTIVO",
+      "fechainicio" : "2018-08-21",
+      "fechanac" : "1887-12-31",
+      "nombre" : "Keny Félix",
+      "uid" : "ArfluCrif9Qc4M7Lph62hnj99Wy1"
+    },
+    "N2MWwhi0TJQWDGTDp6wn3JbElbM2" : {
+      "PERIODOS" : [ null, {
+        "MATERIAS" : {
+          "counter" : 0
+        }
+      } ],
+      "apellido" : "Pérez Bueno",
+      "cedula" : "050-0000000-2",
+      "email" : "luisperez@hotmail.com",
+      "fechainicio" : "2018-10-21",
+      "fechanac" : "1975-08-02",
+      "foto" : "fotos/N2MWwhi0TJQWDGTDp6wn3JbElbM2.jpg",
+      "genero" : "Masculino",
+      "nombre" : "Luis",
+      "telefono" : "809-000-0000",
+      "uid" : "N2MWwhi0TJQWDGTDp6wn3JbElbM2"
+    },
+    "count" : 3
+  },
+  "ROLES" : {
+    "0CVKTobOuLPNUG3cPRqfd1CA9413" : {
+      "rol" : "est"
+    },
+    "2nLtSnQCvcWfLAr1sJw9jP0AGd52" : {
+      "rol" : "est"
+    },
+    "409dymXiNrh6iV8PUccVFr6XvLq2" : {
+      "rol" : "est"
+    },
+    "5kK7qPj4cccNOdhihZeGgOSDSKe2" : {
+      "rol" : "est"
+    },
+    "7joh9uz8qOhDmxBoOMfnvCeipd92" : {
+      "rol" : "est"
+    },
+    "99qYCaPPFhhxKBv8hVNMNIf5dd53" : {
+      "rol" : "est"
+    },
+    "9aWIYWsGficT4kzp6qEFbMxjcqi2" : {
+      "rol" : "est"
+    },
+    "9jtnMzznUuX2QBeILNrF5a84GXG3" : {
+      "rol" : "est"
+    },
+    "9pPjJIv8DpPJaiMqC0KVzBEVpV42" : {
+      "rol" : "est"
+    },
+    "AxKGhbIVOUXWvxIJVUSaby31Bs02" : {
+      "rol" : "est"
+    },
+    "AyKotUg7wFaPtVf7ctf5ngc3zC52" : {
+      "rol" : "est"
+    },
+    "DbFGMOWZo1RSUtOQILH2Nenhdfk1" : {
+      "rol" : "est"
+    },
+    "F7q8vYBHpIbFZ1ulMsfqJdy7Ert1" : {
+      "rol" : "est"
+    },
+    "FMVSSwaYPYR2fuN3GOjxL0NYZHT2" : {
+      "rol" : "est"
+    },
+    "IG555qKLt2cAN0xjOeO9R8InVCG2" : {
+      "rol" : "est"
+    },
+    "IbDrdgQe10R7d7Riqey45uIIdlN2" : {
+      "rol" : "admin"
+    },
+    "MduGw1Z8pCYuQvHHCebct08CLoi1" : {
+      "rol" : "est"
+    },
+    "N2MWwhi0TJQWDGTDp6wn3JbElbM2" : {
+      "rol" : "prof"
+    },
+    "NXPfZCrXYmdT1eKl2S2wcTWIReW2" : {
+      "rol" : "est"
+    },
+    "PcT5I0pX0IgumRVuiHXWEwlb5Wa2" : {
+      "rol" : "est"
+    },
+    "QUycbGV5NfeNw7F2JXZCZ8KyUPv1" : {
+      "rol" : "est"
+    },
+    "SvDHSzlNOuVvB8mOPSteVEK13dJ3" : {
+      "rol" : "est"
+    },
+    "Wg2LRecwM5dWaCasEx1Av6lXWB22" : {
+      "rol" : "est"
+    },
+    "X02EpfFLEjWqvkqPvGO3bABBErC3" : {
+      "rol" : "est"
+    },
+    "cljIyaZ0PYONb0KGnKer4hZdbPp2" : {
+      "rol" : "est"
+    },
+    "count" : 31,
+    "e1lNk42SFOUTMog2UZPFKXMzwD02" : {
+      "rol" : "est"
+    },
+    "g0vBMopc0ad1P1a1cKoXIJ5vlrl2" : {
+      "rol" : "est"
+    },
+    "it9xkH38feQxQkrwJuVqcPt6GKj2" : {
+      "rol" : "est"
+    },
+    "ll13HRQBdpcdbTqJAheMRfU16Xg1" : {
+      "rol" : "est"
+    },
+    "rIpQ0LWZHsNlYe9pRctTDOWmoZg2" : {
+      "rol" : "est"
+    },
+    "tti9FmkONddoxW2HJFEjI8ehChL2" : {
+      "rol" : "est"
+    }
+  },
+  "admin" : "bboytcry@gmail.com",
+  "periodoactual" : 1,
+  "zxccxz1-@" : "bboytcry@hotmail.com"
+}

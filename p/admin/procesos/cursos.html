@@ -1,0 +1,429 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Administrador</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Centro Educativo Tesla</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="../nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" data-toggle="dropdown">Procesos</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item text-primary" href="procesos/registrarestudiante.html">Registro de Estudiantes</a>
+                            <a class="dropdown-item text-primary" href="procesos/registrarprofesores.html">Registro de Profesores</a>
+                            <a class="dropdown-item text-primary" href="procesos/lista de estudiantes.html">Listas</a>
+                            <a class="dropdown-item text-primary" href="procesos/materias.html">Materias</a>
+                            <a class="dropdown-item text-primary" href="">Cursos</a>
+                            <a class="dropdown-item text-primary" href="procesos/noticias.html">Configuración</a>>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="CerrarSesion();" href="../../../index.html">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="jumbotron">
+            <div class="main row">
+                <div class="col-sm-12">
+                    <center><h3 class="text-yellow">Listado General de Cursos</h3></center> <br />
+
+                    <div class="form-group">
+                        <div class="col-xs-9 col-sm-10">
+                            <label for="exampleSelect1">Lista de Cursos</label>
+                            <select class="form-control" id="cursos" tabindex="1">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <form>
+                            <div class="form-group row">
+                                <div class="col-xs-10 col-sm-2 col-md-2 col-lg-1">
+                                    <label for="inlineFormCustomSelect">Proceso</label>
+                                </div>
+                                <div class="col-xs-9 col-sm-8 col-md-6 col-lg-4">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="idprocesoselect" tabindex="2">
+                                        <option value="agregar">Agregar curso</option>
+                                        <option value="modificar">Modificar Curso</option>
+                                        <option value="eliminar">Eliminar Curso</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <br />
+
+                    <div class="form-group">
+                        <label for="example-text-input" class="col-12 col-form-label" id="nombreproceso">Nombre del nuevo curso</label>
+                        <div class="col-xs-9 col-sm-10">
+                            <input class="form-control" type="text" value="" id="newnamecurso" placeholder="Nombre" tabindex="3" maxlength="4">
+                        </div>
+                    </div>
+                    <div class="container">
+                        <form>
+                            <div class="form-group row">
+                                <div class="col-xs-10 col-sm-2 col-md-2 col-lg-1">
+                                    <label for="inlineFormCustomSelect">Estado</label>
+                                </div>
+                                <div class="col-xs-9 col-sm-8 col-md-6 col-lg-4">
+                                    <input class="form-control" type="text" value="Activo" id="estadocurso" tabindex="3" maxlength="4" disabled>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="container">
+                        <form>
+                            <div class="form-group row">
+                                <div class="col-xs-10 col-sm-2 col-md-2 col-lg-1">
+                                    <label for="inlineFormCustomSelect">Inscritos</label>
+                                </div>
+                                <div class="col-xs-9 col-sm-8 col-md-6 col-lg-4">
+                                    <input class="form-control" type="text" value="0 Estudiantes" id="inscritoscurso" tabindex="3" maxlength="4" disabled>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-10">
+                        <a onclick="Procesar();" class="btn btn-success active" id="btnproceso" tabindex="5">Agregar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<br ----------------------------------------------------------------------------------------------------------------------/>-->
+        <div class="jumbotron">
+            <div class="main row">
+                <div class="col-sm-12">
+                    <center><h3 class="text-yellow">Mantenimiento de Cursos</h3></center> <br />
+
+                    <div class="form-group">
+                        <div class="col-xs-9 col-sm-10">
+                            <label for="exampleSelect1">Seleccione el curso</label>
+                            <select class="form-control" id="mantcurso" tabindex="1">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <form>
+                            <div class="form-group row">
+                                <div class="col-xs-10 col-sm-2 col-md-2 col-lg-1">
+                                    <label for="inlineFormCustomSelect">Proceso</label>
+                                </div>
+                                <div class="col-xs-9 col-sm-8 col-md-6 col-lg-4">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="idmantenimentoproceso" tabindex="2">
+                                        <option value="agregar">Establecer Curso</option>
+                                        <option value="modificar">Modificar Curso</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <br />
+
+                    <div class="form-group">
+                        <label for="example-text-input" class="col-12 col-form-label" id="nombreproceso">Nombre del nuevo curso</label>
+                        <div class="col-xs-9 col-sm-10">
+                            <input class="form-control" type="text" value="" id="newnamecurso" placeholder="Nombre" tabindex="3" maxlength="4">
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <a onclick="Procesar();" class="btn btn-success active" id="btnmantproceso" tabindex="5">Establecer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container-fluid bg-primary">
+                <h3 class="text-white lead">Galvin Santos & Jeffry Marte B.</h3>
+            </div>
+        </footer>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Conexión con la base de datos -->
+        <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyD0wEMTWqhJb9Q_fawATAEakx3gQahjeAw",
+                authDomain: "controldecalificaciones.firebaseapp.com",
+                databaseURL: "https://controldecalificaciones.firebaseio.com",
+                projectId: "controldecalificaciones",
+                storageBucket: "controldecalificaciones.appspot.com",
+                messagingSenderId: "24849732387"
+            };
+            firebase.initializeApp(config);
+            const rootRef = firebase.database().ref();
+
+            //documents
+            var cursosselect = document.getElementById('cursos');
+            var idprocesoselect = document.getElementById('idprocesoselect');
+            var nombreproceso = document.getElementById('nombreproceso');
+            var nuevonombre = document.getElementById('newnamecurso');
+            var estadocurso = document.getElementById('estadocurso');
+            var inscritoscurso = document.getElementById('inscritoscurso');
+            var btnproceso = document.getElementById('btnproceso');
+            var CurrentValue = 1;
+
+            var MantCurrentValue = 1;
+            //Variables
+            var Counter = 0;
+
+
+            // Ejecutar la funcion del botón si se preciona enter
+            nuevonombre.addEventListener("keyup", function (event) {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Number 13 is the "Enter" key on the keyboard
+                if (event.keyCode === 13) {
+                    // Trigger the button element with a click
+                    btnproceso.click();
+                }
+            });
+
+            //Rellenar cursos
+            rootRef.child('CURSOS').on('value', function (snapshot) {
+
+                //Vaciar DropDown
+                cursosselect.options.length = 0;
+
+                //Llenar el Dropdown
+                var scores = snapshot.val();
+                var Keys = Object.keys(scores);
+
+                for (var i = 0; i < (Keys.length - 1); i++) {
+                    var opt = snapshot.child(Keys[i]).child('nombre').val();
+                    var optvalue = Keys[i];
+                    var el = document.createElement("option");
+                    el.textContent = opt;
+                    el.value = optvalue;
+                    cursosselect.appendChild(el);
+                }
+
+            });
+
+            cursosselect.addEventListener('change', function (e) {
+                Dinamismo();
+                idprocesoselect.focus();
+            });
+
+            idprocesoselect.addEventListener('change', function (e) {
+                Dinamismo();
+            });
+
+            function Dinamismo() {
+                nuevonombre.value = nuevonombre.value.toUpperCase();
+                if (idprocesoselect.value == 'agregar') {
+                    btnproceso.innerHTML = 'Agregar';
+                    btnproceso.className = 'btn btn-success active';
+                    nombreproceso.innerHTML = 'Nombre del nuevo curso';
+                    estadocurso.value = 'ACTIVO';
+                    inscritoscurso.value = '0 estudiantes';
+                    nuevonombre.disabled = false;
+                    nuevonombre.value = '';
+                    nuevonombre.focus();
+
+                } else if (idprocesoselect.value == 'modificar') {
+                    btnproceso.innerHTML = 'Modificar';
+                    btnproceso.className = 'btn btn-primary active';
+                    nuevonombre.disabled = false;
+                    nombreproceso.innerHTML = 'Nuevo nombre del curso';
+
+                    CurrentValue = cursosselect.value;
+
+                    //Cargar la materia seleccionada
+                    rootRef.child('CURSOS').child(CurrentValue).on('value', function (snapshot) {
+                        nuevonombre.value = snapshot.child('nombre').val();
+                        estadocurso.value = snapshot.child('estado').val();
+                        inscritoscurso.value = (snapshot.child('numero').val()-1)+' estudiantes';
+                    });
+                    nuevonombre.focus();
+
+                } else if (idprocesoselect.value == 'eliminar') {
+                    btnproceso.innerHTML = 'Eliminar';
+                    btnproceso.className = 'btn btn-danger active';
+                    nuevonombre.disabled = true;
+                    nombreproceso.innerHTML = 'Curso a eliminar';
+
+                    CurrentValue = cursosselect.value;
+                    //Cargar la materia seleccionada
+                    rootRef.child('CURSOS').child(CurrentValue).on('value', function (snapshot) {
+                        nuevonombre.value = snapshot.child('nombre').val();
+                        estadocurso.value = snapshot.child('estado').val();
+                        inscritoscurso.value = (snapshot.child('numero').val() - 1) + ' estudiantes';
+                    });
+                }
+            }
+
+            rootRef.child('CURSOS').child('count').on('value', function (snapshot) {
+                Counter = snapshot.val();
+            });
+
+            function Procesar() {
+                nuevonombre.value = nuevonombre.value.toUpperCase();
+                if (nuevonombre.value != '') {
+
+                    if (idprocesoselect.value == 'agregar') {
+                        //Agregar la nueva materia
+                        rootRef.child('CURSOS').child((Counter+1)).set({
+                            estado: 'ACTIVO',
+                            nombre: nuevonombre.value,
+                            numero: 1
+                        });
+
+                        //Aumentar counter en 1
+                        rootRef.child('CURSOS/').update({
+                            count: (Counter + 1)
+                        });
+
+                        nuevonombre.value = '';
+
+                        //Poner el cursor en el textbox de nombre de materia
+                        nuevonombre.focus();
+
+                    } else if (idprocesoselect.value == 'modificar') {
+                        //Modificar materia seleccionada
+                        rootRef.child('CURSOS/' + (CurrentValue.toString())).update({
+                            nombre: nuevonombre.value,
+                        });
+
+                    } else if (idprocesoselect.value == 'eliminar') {
+                        if (estadocurso.value != 'CURSADO') {
+                            var eliminar = confirm('Seguro que desea eliminar el curso: ' + nuevonombre.value);
+                            if (eliminar) {
+                                rootRef.child('CURSOS').child(CurrentValue).remove();
+                                //Aumentar counter en 1
+                                rootRef.child('CURSOS/').update({
+                                    count: (Counter - 1)
+                                });
+                                cursosselect.selectedIndex = 0;
+                                idprocesoselect.selectedIndex = 0;
+                                Dinamismo();                                
+
+                            } else {
+                                //No hacer nada...
+                            }
+                        } else {
+                            alert('Este curso no se puede eliminar ya que se encuentra actualmente cursado.');
+                        }
+                    }
+                } else {
+                    if (idprocesoselect.value == 'eliminar') {
+                        alert('Por favor seleccione la materia que desea eliminar...');
+                    } else {
+                        alert('Debe llenar ambos campos para poder proceder...');
+                    }
+                }
+            }
+
+
+
+
+            // ----------------------------------------------------------------
+
+            //Matenimiento de Cursos
+            var mantcursosselect = document.getElementById('mantcurso');
+            var idmantenimentoproceso = document.getElementById('idmantenimentoproceso');
+            var btnmantproceso = document.getElementById('btnmantproceso');
+
+            idmantenimentoproceso.addEventListener('change', function (e) {
+                MantDinamismo();
+            });
+
+            //Rellenar Mantenimiento de cursos
+            rootRef.child('CURSOS').on('value', function (snapshot) {
+
+                //Vaciar DropDown
+                mantcursosselect.options.length = 0;
+
+                //Llenar el Dropdown
+                var scores = snapshot.val();
+                var Keys = Object.keys(scores);
+
+                for (var i = 0; i < (Keys.length - 1); i++) {
+                    var opt = Keys[i];
+                    var optvalue = Keys[i];
+                    var el = document.createElement("option");
+                    el.textContent = opt;
+                    el.value = optvalue;
+                    mantcursosselect.appendChild(el);
+                }
+
+            });
+
+            function MantDinamismo() {
+                nuevonombre.value = nuevonombre.value.toUpperCase();
+                if (idmantenimentoproceso.value == 'agregar') {
+                    btnmantproceso.innerHTML = 'Establecer';
+                    btnmantproceso.className = 'btn btn-success active';
+                    //nombreproceso.innerHTML = 'Nombre del nuevo curso';
+                    //nuevonombre.disabled = false;
+
+                } else if (idmantenimentoproceso.value == 'modificar') {
+                    btnmantproceso.innerHTML = 'Modificar';
+                    btnmantproceso.className = 'btn btn-primary active';
+                    //nuevonombre.disabled = false;
+                    //nombreproceso.innerHTML = 'Nuevo nombre del curso';
+
+                    //CurrentValue = cursosselect.value;
+                    ////Cargar la materia seleccionada
+                    //rootRef.child('CURSOS').child(CurrentValue).on('value', function (snapshot) {
+                    //    nuevonombre.value = snapshot.key.val();
+                    //});
+
+                }
+                //else if (idprocesoselect.value == 'eliminar') {
+                //    btnproceso.innerHTML = 'Eliminar';
+                //    btnproceso.className = 'btn btn-danger active';
+                //    nuevonombre.disabled = true;
+                //    abreviatura.disabled = true;
+                //    nombreproceso.innerHTML = 'Materia a eliminar';
+
+                //    CurrentValue = cursosselect.value;
+                //    //Cargar la materia seleccionada
+                //    rootRef.child('MATERIAS').child(CurrentValue).on('value', function (snapshot) {
+                //        nuevonombre.value = snapshot.child('nombre').val();
+                //        abreviatura.value = snapshot.child('codigo').val();
+                //    });
+                //}
+            }
+
+
+            function CerrarSesion() {
+                firebase.auth().signOut();
+                window.location = '../../../index.html';
+            }
+
+        </script>
+</body>
+</html>
