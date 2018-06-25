@@ -152,6 +152,57 @@
                             <input class="form-control" type="text" value="" id="newnamecurso" placeholder="Nombre" tabindex="3" maxlength="4">
                         </div>
                     </div>
+                    <div class="container">
+                        <form>
+                            <div class="form-group row">
+                                <div class="col-xs-10 col-sm-3 col-md-2 col-lg-2">
+                                    <label for="inlineFormCustomSelect">Estudiantes Inscritos</label>
+                                </div>
+                                <div class="col-xs-9 col-sm-7 col-md-6 col-lg-4">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="mantestuinscritos" tabindex="2">
+                                        <option value="agregar" id="mantselecestuinscrituos"></option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a onclick="MantEstuEliminar();" class="btn btn-danger active" id="btnmanteliminar" tabindex="5">Eliminar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="container">
+                        <form>
+                            <div class="form-group row">
+                                <div class="col-xs-10 col-sm-3 col-md-2 col-lg-2">
+                                    <label for="inlineFormCustomSelect">Agregar Estudiante</label>
+                                </div>
+                                <div class="col-xs-9 col-sm-7 col-md-6 col-lg-4">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="mantestuinscritos" tabindex="2">
+                                        <option value="agregar" id="mantselecestuinscrituos"></option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a onclick="MantEstuAgregar();" class="btn btn-success active" id="btnmantagregar" tabindex="5">Agregar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="container">
+                        <form>
+                            <div class="form-group row">
+                                <div class="col-xs-10 col-sm-3 col-md-2 col-lg-2">
+                                    <label for="inlineFormCustomSelect">Materias del Curso</label>
+                                </div>
+                                <div class="col-xs-9 col-sm-7 col-md-6 col-lg-4">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="mantmatcursos" tabindex="2">
+                                        <option value="agregar" id="mantselecestuinscrituos"></option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a onclick="MantEstuAgregar();" class="btn btn-success active" id="btnmantagregar" tabindex="5">Agregar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="col-10">
                         <a onclick="Procesar();" class="btn btn-success active" id="btnmantproceso" tabindex="5">Establecer</a>
                     </div>

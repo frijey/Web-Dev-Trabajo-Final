@@ -222,7 +222,6 @@
             //Leer el conteo de estudiantes en dicho curso
             rootRef.child('PERIODOESCOLAR').child(ActualPeriodo).child('CURSOS').child(cursoest.value).child('ESTUDIANTES').on('value', function (snapshot) {
                 ContadorEstudiantesCurso = snapshot.child('count').val();
-                console.log(ContadorEstudiantesCurso);
             });
 
         });
@@ -312,6 +311,7 @@
         });
 
         rootRef.child('CURSOS').on('value', function (snapshot) {
+
             //Vaciar DropDown
             cursoest.options.length = 0;
 
@@ -319,12 +319,12 @@
             var scores = snapshot.val();
             var Keys = Object.keys(scores);
 
-            console.log(Keys);
             for (var i = 0; i < (Keys.length - 1); i++) {
-                var opt = Keys[i];
+                var opt = snapshot.child(Keys[i]).child('nombre').val();
+                var optvalue = Keys[i];
                 var el = document.createElement("option");
                 el.textContent = opt;
-                el.value = opt;
+                el.value = optvalue;
                 cursoest.appendChild(el);
             }
 
